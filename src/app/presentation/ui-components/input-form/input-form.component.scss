@@ -1,0 +1,43 @@
+// TODO: Shared Colors einfügen, damit alle css files die gleichen Farben nutzen können
+
+:host {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+.form {
+  width: 30%;
+
+  &__input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  &__button-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: gainsboro;
+      cursor: not-allowed;
+    }
+  }
+
+  &__error {
+    color: red;
+  }
+}
+
+

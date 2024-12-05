@@ -13,8 +13,8 @@ import { InputFormComponent } from "../../ui-components/input-form/input-form.co
 export class RegisterComponent {
   public constructor(private registerService: RegisterService) {}
 
-  public register($event: { email: string; password: string }): void {
-    this.registerService.register($event.email, $event.password)
+  public register($event: { name: string, email: string; password: string }): void {
+    this.registerService.register($event.name, $event.email, $event.password)
       .then(response => {
         console.log(response);
       })

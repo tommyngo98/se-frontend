@@ -7,10 +7,9 @@ import api from '../utils/api';
 export class RegisterService {
   constructor() {}
 
-  public async register(email: string, password: string): Promise<any> {
+  public async register(name: string, email: string, password: string): Promise<any> {
     try {
-      // TODO: Richtigen Endpunkt nutzen
-      return (await api.post(`/api/data`, {email, password})).data;
+      return (await api.post(`/api/user/register`, {displayed_name: name, email, password})).data;
     } catch (error) {
       console.error('Registrierungsfehler:', error);
       throw error;

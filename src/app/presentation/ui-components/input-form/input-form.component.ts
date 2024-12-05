@@ -15,10 +15,11 @@ export class InputFormComponent {
   public actionType = input.required<'Anmelden' | 'Registrieren'>();
 
   @Output()
-  public formSubmit = new EventEmitter<{ email: string; password: string }>();
+  public formSubmit = new EventEmitter<{ name: string, email: string; password: string }>();
 
   public constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -26,6 +27,10 @@ export class InputFormComponent {
 
   get email() {
     return this.form.get('email');
+  }
+
+  get name() {
+    return this.form.get('name');
   }
 
   get password() {

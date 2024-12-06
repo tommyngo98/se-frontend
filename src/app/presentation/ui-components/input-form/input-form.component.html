@@ -1,1 +1,47 @@
-<p>input-form works!</p>
+  <form
+    [formGroup]="form"
+    (submit)="onSubmit()"
+    class="form"
+  >
+    <div>
+      <input class="form__input" placeholder="Name" id="name" type="text" formControlName="name" />
+
+      @if (name?.invalid && name?.dirty) {
+        <div class="form__error">
+          @if (name?.errors?.['required']) {
+            <span>Name ist erforderlich.</span>
+          }
+        </div>
+      }
+    </div>
+    <div>
+      <input class="form__input" placeholder="E-Mail" id="email" type="email" formControlName="email" />
+
+      @if (email?.invalid && email?.dirty) {
+        <div class="form__error">
+          @if (email?.errors?.['required']) {
+            <span>E-Mail ist erforderlich.</span>
+          }
+          @if (email?.errors?.['email']) {
+            <span>Ungültige E-Mail-Adresse.</span>
+          }
+        </div>
+      }
+    </div>
+    <div>
+      <input class="form__input" placeholder="Passwort" id="password" type="password" formControlName="password" />
+
+      @if (password?.invalid && password?.dirty) {
+        <div class="form__error">
+          @if (password?.errors?.['required']) {
+            <span>Passwort ist erforderlich.</span>
+          }
+          @if (password?.errors?.['minlength']) {
+            <span>Passwort muss mindestens 6 Zeichen lang sein.</span>
+          }
+        </div>
+      }
+    </div>
+    <button class="form__button-submit" type="submit" [disabled]="form.invalid">{{ actionType() }}</button>
+  </form>
+

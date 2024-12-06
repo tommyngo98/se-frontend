@@ -1,3 +1,11 @@
-<p>register works!</p>
+<h2>Willkommen bei Plausch!</h2>
+<p>Erstelle dein Konto und starte deinen Plausch.</p>
+
+<input-form
+  [urlPath]="'/register'"
+  (formSubmit)="register($event)"
+  [actionType]="'Registrieren'">
+</input-form>
+
 <button [routerLink]="'/home'">Startseite</button>
 <button [routerLink]="'/login'">Einloggen</button>

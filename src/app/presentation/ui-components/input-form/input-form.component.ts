@@ -1,4 +1,4 @@
-import {Component, EventEmitter, input, Output} from '@angular/core';
+import {Component, EventEmitter, input, OnChanges, Output} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CommonModule} from "@angular/common";
 
@@ -9,9 +9,8 @@ import {CommonModule} from "@angular/common";
   imports: [ReactiveFormsModule, CommonModule],
   styleUrls: ['./input-form.component.scss']
 })
-export class InputFormComponent {
+export class InputFormComponent implements OnChanges {
   public form: FormGroup;
-  public urlPath = input.required<string>();
   public actionType = input.required<'Anmelden' | 'Registrieren'>();
 
   @Output()
@@ -23,6 +22,10 @@ export class InputFormComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+  }
+
+  ngOnChanges(): void {
+    this.updateNameValidation();
   }
 
   get email() {
@@ -41,5 +44,17 @@ export class InputFormComponent {
     if (this.form.valid) {
       this.formSubmit.emit(this.form.value);
     }
+  }
+
+  private updateNameValidation(): void {
+    const nameControl = this.form.get('name');
+
+    if (this.actionType() === 'Anmelden') {
+      nameControl?.clearValidators();
+    } else if (this.actionType() === 'Registrieren') {
+      nameControl?.setValidators([Validators.required]);
+    }
+
+    nameControl?.updateValueAndValidity(); // Recalculate the validity
   }
 }

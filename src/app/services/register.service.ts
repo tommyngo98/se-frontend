@@ -14,4 +14,5 @@ export class RegisterService {
       console.error('Registrierungsfehler:', error);
       throw error;
     }
-  }}
+  }
+}

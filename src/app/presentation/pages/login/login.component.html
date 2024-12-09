@@ -1,3 +1,10 @@
-<p>login works!</p>
+<h2>Willkommen zurück!</h2>
+<p>Schön, dass du wieder da bist - die Gespräche warten schon.</p>
+
+<input-form
+  (formSubmit)="login($event)"
+  [actionType]="'Anmelden'">
+</input-form>
+
 <button [routerLink]="'/home'">Startseite</button>
 <button [routerLink]="'/register'">Registrieren</button>

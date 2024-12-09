@@ -1,0 +1,8 @@
+@import '../styles/colors';
+
+:host {
+  display: block;
+  background-color: $secondary-color;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}

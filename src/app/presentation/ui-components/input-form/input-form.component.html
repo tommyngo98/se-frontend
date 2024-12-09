@@ -3,17 +3,19 @@
     (submit)="onSubmit()"
     class="form"
   >
-    <div>
-      <input class="form__input" placeholder="Name" id="name" type="text" formControlName="name" />
+    @if (actionType() === "Registrieren") {
+      <div>
+        <input class="form__input" placeholder="Name" id="name" type="text" formControlName="name" />
 
-      @if (name?.invalid && name?.dirty) {
-        <div class="form__error">
-          @if (name?.errors?.['required']) {
-            <span>Name ist erforderlich.</span>
-          }
-        </div>
-      }
-    </div>
+        @if (name?.invalid && name?.dirty) {
+          <div class="form__error">
+            @if (name?.errors?.['required']) {
+              <span>Name ist erforderlich.</span>
+            }
+          </div>
+        }
+      </div>
+    }
     <div>
       <input class="form__input" placeholder="E-Mail" id="email" type="email" formControlName="email" />
 
@@ -31,7 +33,7 @@
     <div>
       <input class="form__input" placeholder="Passwort" id="password" type="password" formControlName="password" />
 
-      @if (password?.invalid && password?.dirty) {
+      @if (password?.invalid && password?.dirty && actionType() === "Registrieren") {
         <div class="form__error">
           @if (password?.errors?.['required']) {
             <span>Passwort ist erforderlich.</span>
@@ -42,6 +44,13 @@
         </div>
       }
     </div>
+
+    @if (this.successMessage) {
+      <p [innerText]="this.successMessage"></p>
+    } @else if (this.errorMessage()) {
+      <p [innerText]="this.errorMessage()"></p>
+    }
+
     <button class="form__button-submit" type="submit" [disabled]="form.invalid">{{ actionType() }}</button>
   </form>
 

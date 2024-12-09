@@ -1,3 +1,7 @@
-<p>Plausch</p>
-<button [routerLink]="'/login'">Einloggen</button>
-<button [routerLink]="'/register'">Registrieren</button>
+<main class="home-page">
+  <h1>Plausch</h1>
+  <p class="home-page__subtitle">Gespräche, die bleiben.</p>
+
+  <app-cta-button [text]="'Anmelden'" [routerLink]="'/login'">"></app-cta-button>
+  <app-cta-button [text]="'Registrieren'" [routerLink]="'/register'"></app-cta-button>
+</main>

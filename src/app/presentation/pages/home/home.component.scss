@@ -1,0 +1,27 @@
+@import "../../../../styles/colors";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $background-color;
+
+  color: $primary-color;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__subtitle {
+    margin-top: 0;
+  }
+
+  app-cta-button {
+    margin-top: 20px;
+  }
+}

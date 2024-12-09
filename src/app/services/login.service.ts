@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import api from '../utils/api';
 import { LoginResponse } from "../data-domain/models/login-response.model";
+import {AxiosError} from "axios";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,12 @@ export class LoginService {
 
       return response.data;
     } catch (error) {
-      throw error;
+      if (error instanceof AxiosError) {
+        const errorMessage = error.response?.data.msg;
+        throw new Error(errorMessage);
+      }
+
+      return null;
     }
   }
 }

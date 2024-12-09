@@ -6,9 +6,11 @@
 
   <input-form
     (formSubmit)="login($event)"
-    [actionType]="'Anmelden'">
+    [actionType]="'Anmelden'"
+    [errorMessage]="errorMessage"
+  >
   </input-form>
-
+  
   <a class="login-page__register-link" [routerLink]="'/register'">Konto erstellen</a>
 </main>
 

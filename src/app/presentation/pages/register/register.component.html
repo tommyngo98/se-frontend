@@ -6,7 +6,10 @@
 
   <input-form
     (formSubmit)="register($event)"
-    [actionType]="'Registrieren'">
+    [actionType]="'Registrieren'"
+    [errorMessage]="errorMessage"
+    [successMessage]="successMessage"
+  >
   </input-form>
 
   <a class="register-page__login-link" [routerLink]="'/login'">Anmelden</a>

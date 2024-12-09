@@ -13,17 +13,17 @@ import {CtaButtonComponent} from "../../ui-components/cta-button/cta-button.comp
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  public errorMessage = '';
   public constructor(private loginService: LoginService, private router: Router) {} // Inject Router
 
   public login($event: { email: string; password: string }): void {
+    this.errorMessage = '';
     this.loginService.login($event.email, $event.password)
       .then(() => {
         this.router.navigate(['/dashboard']);
       })
       .catch(error => {
-        if (error?.response?.data?.message) {
-          console.log(error.response.data.message);
-        }
+        this.errorMessage = error;
       });
   }
 }

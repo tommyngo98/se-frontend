@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import api from '../utils/api';
+import {AxiosError} from "axios";
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,12 @@ export class RegisterService {
     try {
       return (await api.post(`/api/user/register`, {displayed_name: name, email, password})).data;
     } catch (error) {
-      console.error('Register error:', error);
-      throw error;
+      if (error instanceof AxiosError) {
+        const errorMessage = error.response?.data.msg;
+        throw new Error(errorMessage);
+      }
+
+      return null;
     }
   }
 }

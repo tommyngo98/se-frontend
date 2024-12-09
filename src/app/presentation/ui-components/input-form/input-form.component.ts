@@ -1,6 +1,6 @@
-import {Component, EventEmitter, input, OnChanges, Output} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {CommonModule} from "@angular/common";
+import { Component, EventEmitter, input, OnChanges, Output } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'input-form',

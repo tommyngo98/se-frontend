@@ -20,10 +20,6 @@ export class LoginService {
     }
   }
 
-  public logout(): void {
-    localStorage.removeItem('authToken');
-  }
-
   public isLoggedIn(): boolean {
     return !!localStorage.getItem('authToken');
   }

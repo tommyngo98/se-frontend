@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from "@angular/router";
 import { InputFormComponent } from "../../ui-components/input-form/input-form.component";
 import { LoginService } from "../../../services/login.service";
+import { HeaderComponent } from "../../ui-components/header/header.component";
+import {CtaButtonComponent} from "../../ui-components/cta-button/cta-button.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, InputFormComponent],
+  imports: [RouterLink, InputFormComponent, HeaderComponent, CtaButtonComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

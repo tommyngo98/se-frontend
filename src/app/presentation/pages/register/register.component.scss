@@ -1,3 +1,5 @@
+@import "../../../../styles/colors";
+
 :host {
   display: flex;
   flex-direction: column;
@@ -9,6 +11,11 @@
   width: 50%;
   margin: auto;
   text-align: center;
+  color: $background-color;
+
+  &__subtitle {
+    margin-top: 0;
+  }
 
   &__login-link {
     margin-top: 40px;

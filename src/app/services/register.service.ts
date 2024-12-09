@@ -5,8 +5,6 @@ import api from '../utils/api';
   providedIn: 'root'
 })
 export class RegisterService {
-  constructor() {}
-
   public async register(name: string, email: string, password: string): Promise<any> {
     try {
       return (await api.post(`/api/user/register`, {displayed_name: name, email, password})).data;

@@ -14,7 +14,7 @@ export class InputFormComponent implements OnChanges {
   public actionType = input.required<'Anmelden' | 'Registrieren'>();
   public errorMessage = input.required<string>();
 
-  @Input() successMessage: string = ''; // Optional Input mit Default
+  @Input() successMessage: string = '';
 
   @Output()
   public formSubmit = new EventEmitter<{ name: string, email: string; password: string }>();

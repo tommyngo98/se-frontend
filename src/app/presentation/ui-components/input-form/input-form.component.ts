@@ -27,7 +27,7 @@ export class InputFormComponent implements OnChanges {
     });
   }
 
-  ngOnChanges(): void {
+  public ngOnChanges(): void {
     this.updateValidation();
   }
 

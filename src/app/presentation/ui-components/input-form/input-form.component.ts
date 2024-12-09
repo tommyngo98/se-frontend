@@ -19,13 +19,13 @@ export class InputFormComponent implements OnChanges {
   public constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       name: [''],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
   ngOnChanges(): void {
-    this.updateNameValidation();
+    this.updateValidation();
   }
 
   get email() {
@@ -46,13 +46,17 @@ export class InputFormComponent implements OnChanges {
     }
   }
 
-  private updateNameValidation(): void {
+  private updateValidation(): void {
     const nameControl = this.form.get('name');
+    const emailControl = this.form.get('email');
+    const passwordControl = this.form.get('password');
 
     if (this.actionType() === 'Anmelden') {
       nameControl?.clearValidators();
     } else if (this.actionType() === 'Registrieren') {
       nameControl?.setValidators([Validators.required]);
+      emailControl?.setValidators([Validators.email]);
+      passwordControl?.setValidators([Validators.minLength(6)])
     }
 
     nameControl?.updateValueAndValidity(); // Recalculate the validity

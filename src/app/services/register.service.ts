@@ -9,7 +9,7 @@ export class RegisterService {
     try {
       return (await api.post(`/api/user/register`, {displayed_name: name, email, password})).data;
     } catch (error) {
-      console.error('Registrierungsfehler:', error);
+      console.error('Register error:', error);
       throw error;
     }
   }

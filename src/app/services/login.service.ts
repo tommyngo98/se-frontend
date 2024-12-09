@@ -19,8 +19,4 @@ export class LoginService {
       throw error;
     }
   }
-
-  public isLoggedIn(): boolean {
-    return !!localStorage.getItem('authToken');
-  }
 }

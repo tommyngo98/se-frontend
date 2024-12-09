@@ -15,13 +15,15 @@ import {CtaButtonComponent} from "../../ui-components/cta-button/cta-button.comp
 export class LoginComponent {
   public constructor(private loginService: LoginService, private router: Router) {} // Inject Router
 
-  login($event: { email: string; password: string }): void {
+  public login($event: { email: string; password: string }): void {
     this.loginService.login($event.email, $event.password)
       .then(() => {
         this.router.navigate(['/dashboard']);
       })
       .catch(error => {
-        console.log(error);
+        if (error?.response?.data?.message) {
+          console.log(error.response.data.message);
+        }
       });
   }
 }

@@ -17,7 +17,6 @@ export class LoginService {
 
       return response.data;
     } catch (error) {
-      console.error('Login error:', error);
       throw error;
     }
   }

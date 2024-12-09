@@ -18,7 +18,7 @@ export class InputFormComponent implements OnChanges {
 
   public constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      name: ['', [Validators.required]],
+      name: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });

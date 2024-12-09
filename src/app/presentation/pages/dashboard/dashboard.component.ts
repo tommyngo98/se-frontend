@@ -2,12 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../services/user.service";
 import {User} from "../../../data-domain/models/user.model";
 import {HeaderComponent} from "../../ui-components/header/header.component";
+import {FooterComponent} from "../../ui-components/footer/footer.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

@@ -3,11 +3,12 @@ import { RouterLink } from "@angular/router";
 import { RegisterService } from "../../../services/register.service";
 import { InputFormComponent } from "../../ui-components/input-form/input-form.component";
 import {HeaderComponent} from "../../ui-components/header/header.component";
+import {FooterComponent} from "../../ui-components/footer/footer.component";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, InputFormComponent, HeaderComponent],
+  imports: [RouterLink, InputFormComponent, HeaderComponent, FooterComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

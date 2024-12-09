@@ -1,0 +1,14 @@
+@import '../../../../styles/colors';
+
+:host {
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  background: $background-color;
+}
+
+span {
+  padding: 1rem;
+  color: $primary-color;
+}

@@ -1,3 +1,17 @@
-<p>login works!</p>
-<button [routerLink]="'/home'">Startseite</button>
-<button [routerLink]="'/register'">Registrieren</button>
+<app-header></app-header>
+
+<main class="login-page">
+  <h2>Willkommen zurück!</h2>
+  <p class="login-page__subtitle">Schön, dass du wieder da bist - die Gespräche warten schon.</p>
+
+  <input-form
+    (formSubmit)="login($event)"
+    [actionType]="'Anmelden'"
+    [errorMessage]="errorMessage"
+  >
+  </input-form>
+
+  <a class="login-page__register-link" [routerLink]="'/register'">Konto erstellen</a>
+</main>
+
+<app-footer></app-footer>

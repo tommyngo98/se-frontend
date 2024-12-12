@@ -1,11 +1,19 @@
-<h2>Willkommen bei Plausch!</h2>
-<p>Erstelle dein Konto und starte deinen Plausch.</p>
+<app-header></app-header>
 
-<input-form
-  [urlPath]="'/register'"
-  (formSubmit)="register($event)"
-  [actionType]="'Registrieren'">
-</input-form>
+<main class="register-page">
+  <h2>Willkommen bei Plausch!</h2>
+  <p class="register-page__subtitle">Erstelle dein Konto und starte deinen Plausch.</p>
 
-<button [routerLink]="'/home'">Startseite</button>
-<button [routerLink]="'/login'">Einloggen</button>
+  <input-form
+    (formSubmit)="register($event)"
+    [actionType]="'Registrieren'"
+    [errorMessage]="errorMessage"
+    [successMessage]="successMessage"
+  >
+  </input-form>
+
+  <a class="register-page__login-link" [routerLink]="'/login'">Anmelden</a>
+</main>
+
+<app-footer></app-footer>
+

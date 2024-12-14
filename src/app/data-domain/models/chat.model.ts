@@ -1,4 +1,5 @@
 export interface Chat {
+  chat_id: number,
   members: number[],
   messages: Message[],
 }

@@ -3,13 +3,15 @@ import {UserService} from "../../../services/user.service";
 import {User} from "../../../data-domain/models/user.model";
 import {HeaderComponent} from "../../ui-components/header/header.component";
 import {FooterComponent} from "../../ui-components/footer/footer.component";
+import {FriendsListComponent} from "./components/friends-list/friends-list.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FriendsListComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

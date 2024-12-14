@@ -1,12 +1,13 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Message } from "../data-domain/models/message.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
   private socket: WebSocket | null = null;
-  private messageSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  private messageSubject: BehaviorSubject<Message | null> = new BehaviorSubject<Message | null>(null);
 
   public messages$ = this.messageSubject.asObservable();
 
@@ -14,26 +15,21 @@ export class WebsocketService {
     if (!this.socket) {
       this.socket = new WebSocket(url);
 
-      // Wenn die Verbindung geöffnet wird
       this.socket.onopen = () => {
         console.log('WebSocket-Verbindung geöffnet');
       };
 
-      // Wenn eine Nachricht vom Server empfangen wird
       this.socket.onmessage = (event) => {
         const message = JSON.parse(event.data);
         console.log('Nachricht vom Server:', message);
 
-        // Nachricht im BehaviorSubject speichern (für Komponenten zugänglich)
         this.messageSubject.next(message);
       };
 
-      // Fehlerbehandlung
       this.socket.onerror = (error) => {
         console.error('WebSocket-Fehler:', error);
       };
 
-      // Wenn die Verbindung geschlossen wird
       this.socket.onclose = () => {
         console.log('Verbindung zum Server geschlossen');
       };

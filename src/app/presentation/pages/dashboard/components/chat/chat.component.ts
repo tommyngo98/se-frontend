@@ -11,7 +11,7 @@ import { FormsModule } from "@angular/forms";
 })
 export class ChatComponent implements OnInit {
   public chatId = input.required<string>();
-  public senderId = input.required<string>();
+  public senderId = input.required<number>();
   public message = '';
   public messages: { sender: string; text: string }[] = [];
 

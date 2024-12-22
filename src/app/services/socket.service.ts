@@ -9,9 +9,22 @@ export class SocketService {
   private socket: Socket | undefined;
 
   public connect() {
+    const token = localStorage.getItem('authToken');
+
     this.socket = io('http://localhost:5005', {
       path: '/socket.io',
       withCredentials: true,
+      auth: {
+        token: token
+      }
+    });
+
+    this.socket.on('connect', () => {
+      console.log('Connected to server, socket ID:', this.socket?.id);
+    });
+
+    this.socket.on('connect_error', (err) => {
+      console.error('Connection failed:', err.message);
     });
   }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import api from '../utils/api';
 import { LoginResponse } from "../data-domain/models/login-response.model";
-import {AxiosError} from "axios";
+import { AxiosError } from "axios";
 
 @Injectable({
   providedIn: 'root'

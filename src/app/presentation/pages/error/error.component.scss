@@ -1,0 +1,20 @@
+@import "../../../../styles/colors";
+
+:host {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 100px auto auto auto;
+  text-align: center;
+  color: $background-color;
+
+  &__subtitle {
+    margin-top: 0;
+  }
+}

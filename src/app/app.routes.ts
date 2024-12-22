@@ -5,6 +5,8 @@ import { LoginComponent } from "./presentation/pages/login/login.component";
 import { DashboardComponent } from "./presentation/pages/dashboard/dashboard.component";
 import { DashboardRouteGuard } from "./route-guards/dashboard.route-guard";
 import { LoginRouteGuard } from "./route-guards/login.route-guard";
+import { ErrorComponent } from "./presentation/pages/error/error.component";
+import { ConfirmEmailComponent } from "./presentation/pages/confirm-email/confirm-email.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,9 +15,12 @@ export const routes: Routes = [
     component: LoginComponent,
     canActivate: [LoginRouteGuard]
   },
+  { path: 'confirm-email', component: ConfirmEmailComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard',
     component: DashboardComponent,
     canActivate: [DashboardRouteGuard],
   },
+  { path: 'error', component: ErrorComponent },
+  { path: '**', redirectTo: '/error', pathMatch: 'full' },
 ];

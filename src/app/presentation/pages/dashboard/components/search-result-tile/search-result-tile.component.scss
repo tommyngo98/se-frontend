@@ -1,15 +1,17 @@
 @import "../../../../../../styles/colors";
 
-.tile {
+.result {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   background: $secondary-color;
-  padding: 10px 0;
+  padding: 10px;
+  margin-top: 10px;
+  justify-content: space-between;
   border-radius: 8px;
 
   p {
     color: $background-color;
     word-break: break-all;
   }
+
 }

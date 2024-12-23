@@ -1,7 +1,7 @@
 import { Component, EventEmitter, input, Output } from '@angular/core';
 import { CtaButtonComponent } from "../../../../ui-components/cta-button/cta-button.component";
 import { FormsModule } from "@angular/forms";
-import { FriendsListTileComponent } from "../friends-list-tile/friends-list-tile.component";
+import { SearchResultTileComponent } from "../search-result-tile/search-result-tile.component";
 import { FriendRequests, User } from "../../../../../data-domain/models/user.model";
 import { UserService } from "../../../../../services/user.service";
 
@@ -11,7 +11,7 @@ import { UserService } from "../../../../../services/user.service";
   imports: [
     CtaButtonComponent,
     FormsModule,
-    FriendsListTileComponent
+    SearchResultTileComponent
   ],
   templateUrl: './search-friend-modal.component.html',
   styleUrl: './search-friend-modal.component.scss'
@@ -24,7 +24,7 @@ export class SearchFriendModalComponent {
   public foundUser: User | undefined;
   public activeTab: string = 'add-friend';
 
-  constructor(private userService: UserService) {}
+  public constructor(private userService: UserService) {}
 
   public async setSearchResult(userId?: number): Promise<void> {
     this.foundUser = undefined;

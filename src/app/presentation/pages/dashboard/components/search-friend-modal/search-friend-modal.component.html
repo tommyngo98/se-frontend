@@ -29,8 +29,7 @@
 
         @if (this.foundUser) {
           <div class="search__result">
-            <h3>Suchergebnis:</h3>
-            <friends-list-tile [user]="this.foundUser"></friends-list-tile>
+            <search-result-tile [user]="this.foundUser"></search-result-tile>
           </div>
         }
       </div>

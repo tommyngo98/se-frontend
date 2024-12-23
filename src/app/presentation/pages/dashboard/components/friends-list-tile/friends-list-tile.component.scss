@@ -5,19 +5,11 @@
   align-items: center;
   justify-content: space-around;
   background: $secondary-color;
-
-  &__information {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  &__name {
-    margin-bottom: 0;
-  }
+  padding: 10px 0;
+  border-radius: 8px;
 
   p {
     color: $background-color;
+    word-break: break-all;
   }
 }

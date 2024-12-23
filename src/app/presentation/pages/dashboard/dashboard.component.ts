@@ -5,9 +5,9 @@ import { HeaderComponent } from "../../ui-components/header/header.component";
 import { FooterComponent } from "../../ui-components/footer/footer.component";
 import { SocketService } from "../../../services/socket.service";
 import { ChatComponent } from "./components/chat/chat.component";
-import { FriendsListComponent } from "./components/friends-list/friends-list.component";
 import { SearchFriendModalComponent } from "./components/search-friend-modal/search-friend-modal.component";
 import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.component";
+import {FriendRequestService} from "../../../services/friend-request.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +16,6 @@ import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.co
     HeaderComponent,
     FooterComponent,
     ChatComponent,
-    FriendsListComponent,
     SearchFriendModalComponent,
     CtaButtonComponent
   ],

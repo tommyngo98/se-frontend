@@ -19,8 +19,7 @@
 
     @if (this.isSearchModalVisible) {
       <search-friend-modal
-        [title]="'Modal Titel'"
-        [content]="'Hier ist der Inhalt des Modals'"
+        [pendingRequests]="this.user.pendingRequests"
         (close)="closeSearchModal()"
       ></search-friend-modal>
     }

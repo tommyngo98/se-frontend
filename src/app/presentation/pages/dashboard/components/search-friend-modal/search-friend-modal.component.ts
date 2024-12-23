@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, input, Output } from '@angular/core';
 import { CtaButtonComponent } from "../../../../ui-components/cta-button/cta-button.component";
 import { FormsModule } from "@angular/forms";
 import { FriendsListTileComponent } from "../friends-list-tile/friends-list-tile.component";
-import { User } from "../../../../../data-domain/models/user.model";
+import { FriendRequests, User } from "../../../../../data-domain/models/user.model";
 import { UserService } from "../../../../../services/user.service";
 
 @Component({
@@ -17,18 +17,18 @@ import { UserService } from "../../../../../services/user.service";
   styleUrl: './search-friend-modal.component.scss'
 })
 export class SearchFriendModalComponent {
-  @Input() content: string = '';
   @Output() close = new EventEmitter<void>();
 
+  public pendingRequests = input<FriendRequests[]>();
   public userId?: number;
-  public searchResult: User | undefined;
+  public foundUser: User | undefined;
   public activeTab: string = 'add-friend';
 
   constructor(private userService: UserService) {}
 
   public async setSearchResult(userId?: number): Promise<void> {
-    this.searchResult = undefined;
-    this.searchResult = await this.userService.getUserById(userId)
+    this.foundUser = undefined;
+    this.foundUser = await this.userService.getUserById(userId)
   }
 
   public setActiveTab(tab: string): void {

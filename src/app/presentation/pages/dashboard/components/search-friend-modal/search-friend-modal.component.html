@@ -27,19 +27,27 @@
           ></cta-button>
         </div>
 
-        @if (this.searchResult) {
+        @if (this.foundUser) {
           <div class="search__result">
             <h3>Suchergebnis:</h3>
-            <friends-list-tile [user]="this.searchResult"></friends-list-tile>
+            <friends-list-tile [user]="this.foundUser"></friends-list-tile>
           </div>
         }
       </div>
     }
 
     @if (activeTab === 'pending-requests') {
-      <div>
-        <p>Test</p>
-      </div>
+      @if (this.pendingRequests()?.length === 0) {
+        <div>
+          <p>Keine offenen Anfragen</p>
+        </div>
+      } @else {
+        @for (request of pendingRequests(); track request) {
+          <div>
+            <p>{{ request._id }}</p>
+          </div>
+        }
+      }
     }
   </div>
 

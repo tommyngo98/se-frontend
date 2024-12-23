@@ -13,7 +13,7 @@ export interface User {
   updatedAt: Date,
 }
 
-interface FriendRequests {
+export interface FriendRequests {
   from: number,
   _id: string,
   status: RequestStatus,

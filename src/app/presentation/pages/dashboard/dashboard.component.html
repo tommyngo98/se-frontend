@@ -6,12 +6,24 @@
       Willkommen, {{ this.user.displayed_name }}
     </h2>
 
-    <friends-list></friends-list>
-
     <app-chat
       chatId="67683a5e04c5dbd5c1a25d8e"
       [senderId]="this.user.user_id"
     ></app-chat>
+
+    <cta-button
+      class="add-friend"
+      [text]="'Freund/in hinzufügen'"
+      (click)="showSearchModal()"
+    ></cta-button>
+
+    @if (this.isSearchModalVisible) {
+      <search-friend-modal
+        [title]="'Modal Titel'"
+        [content]="'Hier ist der Inhalt des Modals'"
+        (close)="closeSearchModal()"
+      ></search-friend-modal>
+    }
   </main>
 }
 

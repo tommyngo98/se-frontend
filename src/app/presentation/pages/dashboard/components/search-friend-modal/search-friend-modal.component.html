@@ -1,0 +1,49 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+
+<div class="modal-content">
+  <div class="modal-tabs">
+    <button
+      [class.active]="activeTab === 'add-friend'"
+      (click)="setActiveTab('add-friend')"
+    >
+      Freund/in hinzufügen
+    </button>
+    <button
+      [class.active]="activeTab === 'pending-requests'"
+      (click)="setActiveTab('pending-requests')"
+    >
+      Offene Anfragen
+    </button>
+  </div>
+
+  <div class="modal-body">
+    @if (activeTab === 'add-friend') {
+      <div class="search">
+        <div class="search__form">
+          <input class="search__input" type="text" [(ngModel)]="userId" placeholder="User-ID" />
+          <cta-button
+            [text]="'Suche'"
+            (click)="setSearchResult(userId)"
+          ></cta-button>
+        </div>
+
+        @if (this.searchResult) {
+          <div class="search__result">
+            <h3>Suchergebnis:</h3>
+            <friends-list-tile [user]="this.searchResult"></friends-list-tile>
+          </div>
+        }
+      </div>
+    }
+
+    @if (activeTab === 'pending-requests') {
+      <div>
+        <p>Test</p>
+      </div>
+    }
+  </div>
+
+  <div class="modal-footer">
+    <cta-button [text]="'Schließen'" (click)="closeModal()"></cta-button>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 @if (this.user()) {
   <div class="tile">
     <div class="tile__information">
-      <p>Name: {{ this.user()?.displayed_name}}</p>
-      <p>E-Mail: {{ this.user()?.email}}</p>
+      <p class="tile__name">Name: {{ this.user()?.displayed_name}}</p>
+      <p class="tile__mail">E-Mail: {{ this.user()?.email}}</p>
     </div>
     <div>
       <cta-button
@@ -10,6 +10,5 @@
         (click)="this.sendFriendRequest(this.user()?._id)"
       ></cta-button>
     </div>
-
   </div>
 }

@@ -1,13 +1,23 @@
+@import "../../../../../../styles/colors";
+
 .tile {
-  border: 1px solid green;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background: $secondary-color;
 
   &__information {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  &__name {
+    margin-bottom: 0;
+  }
+
+  p {
+    color: $background-color;
   }
 }

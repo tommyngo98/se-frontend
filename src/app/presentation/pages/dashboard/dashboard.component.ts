@@ -6,6 +6,8 @@ import { FooterComponent } from "../../ui-components/footer/footer.component";
 import { SocketService } from "../../../services/socket.service";
 import { ChatComponent } from "./components/chat/chat.component";
 import { FriendsListComponent } from "./components/friends-list/friends-list.component";
+import { SearchFriendModalComponent } from "./components/search-friend-modal/search-friend-modal.component";
+import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -14,13 +16,16 @@ import { FriendsListComponent } from "./components/friends-list/friends-list.com
     HeaderComponent,
     FooterComponent,
     ChatComponent,
-    FriendsListComponent
+    FriendsListComponent,
+    SearchFriendModalComponent,
+    CtaButtonComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   public user: User | undefined;
+  public isSearchModalVisible = false;
 
   public constructor(
     private userService: UserService,
@@ -38,5 +43,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.socketService.disconnect();
+  }
+
+  public showSearchModal(): void {
+    this.isSearchModalVisible = true;
+  }
+
+  public closeSearchModal(): void {
+    this.isSearchModalVisible = false;
   }
 }

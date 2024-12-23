@@ -1,0 +1,67 @@
+@import "../../../../../../styles/colors";
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 80%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $primary-color;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1001;
+}
+
+.modal-tabs {
+  display: flex;
+  margin-bottom: 20px;
+
+  button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: $tertiary-color;
+    color: $secondary-color;
+    cursor: pointer;
+  }
+
+  button.active {
+    background: $secondary-color;
+    color: $background-color;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.modal-body {
+  padding: 20px 0;
+
+  .search {
+    &__form {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__input {
+      min-width: 160px;
+      height: 32px;
+    }
+
+    &__result {
+      h3 {
+        margin-bottom: 10px;
+        color: $background-color;
+      }
+    }
+  }
+}

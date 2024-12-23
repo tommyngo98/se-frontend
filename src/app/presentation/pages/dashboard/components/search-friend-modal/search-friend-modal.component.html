@@ -43,7 +43,9 @@
       } @else {
         @for (request of pendingRequests(); track request) {
           <div>
-            <p>{{ request._id }}</p>
+            <pending-request-tile
+              [request]="request"
+            ></pending-request-tile>
           </div>
         }
       }

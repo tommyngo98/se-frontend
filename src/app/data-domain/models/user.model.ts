@@ -8,18 +8,18 @@ export interface User {
   bio: string,
   chats: number[],
   friends: number[],
-  pendingRequests: FriendRequests[],
+  pendingRequests: FriendRequest[],
   createdAt: Date,
   updatedAt: Date,
 }
 
-export interface FriendRequests {
+export interface FriendRequest {
   from: number,
   _id: string,
   status: RequestStatus,
 }
 
-enum RequestStatus {
+export enum RequestStatus {
   PENDING = 'pending',
   ACCEPTED = 'accepted',
   DENIED = 'denied',

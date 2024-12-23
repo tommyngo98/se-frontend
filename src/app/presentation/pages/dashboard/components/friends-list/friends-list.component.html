@@ -1,1 +1,20 @@
-<h3>Freundesliste</h3>
+<div>
+  <h2>Freundesliste</h2>
+  <input type="text" [(ngModel)]="userId" placeholder="Enter User ID" />
+  <button (click)="setSearchResult(userId)">Search</button>
+
+  @if (this.searchResult) {
+    <div>
+      <h3>Search Result:</h3>
+      <p>Name: {{ searchResult.displayed_name }}</p>
+      <p>Email: {{ searchResult.email }}</p>
+      <!-- Füge hier weitere Felder hinzu, die du vom User-Modell erhalten möchtest -->
+    </div>
+  }
+
+  @if (!this.searchResult && userId) {
+    <div>
+      <p>No user found for ID {{ userId }}</p>
+    </div>
+  }
+</div>

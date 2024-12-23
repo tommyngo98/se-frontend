@@ -1,0 +1,10 @@
+<div>
+  <h2>Chat</h2>
+  @for (message of messages; track message) {
+    <div>
+      {{ message.sender }}: {{ message.text }}
+    </div>
+  }
+  <input [(ngModel)]="message" placeholder="Nachricht eingeben"/>
+  <button (click)="sendMessage()">Senden</button>
+</div>

@@ -5,16 +5,10 @@
 
   @if (this.searchResult) {
     <div>
-      <h3>Search Result:</h3>
-      <p>Name: {{ searchResult.displayed_name }}</p>
-      <p>Email: {{ searchResult.email }}</p>
-      <!-- Füge hier weitere Felder hinzu, die du vom User-Modell erhalten möchtest -->
-    </div>
-  }
-
-  @if (!this.searchResult && userId) {
-    <div>
-      <p>No user found for ID {{ userId }}</p>
+      <h3>Suchergebnis:</h3>
+      <friends-list-tile
+        [user]="this.searchResult"
+      ></friends-list-tile>
     </div>
   }
 </div>

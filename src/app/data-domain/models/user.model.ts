@@ -1,4 +1,5 @@
 export interface User {
+  _id: string,
   user_id: number,
   displayed_name: string,
   email: string,
@@ -14,8 +15,7 @@ export interface User {
 
 interface FriendRequests {
   from: number,
-  to: number,
-  timestamp: Date,
+  _id: string,
   status: RequestStatus,
 }
 

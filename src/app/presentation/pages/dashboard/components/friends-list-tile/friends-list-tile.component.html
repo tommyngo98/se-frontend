@@ -1,0 +1,15 @@
+@if (this.user()) {
+  <div class="tile">
+    <div class="tile__information">
+      <p>Name: {{ this.user()?.displayed_name}}</p>
+      <p>E-Mail: {{ this.user()?.email}}</p>
+    </div>
+    <div>
+      <cta-button
+        [text]="'Anfrage senden'"
+        (click)="this.sendFriendRequest(this.user()?._id)"
+      ></cta-button>
+    </div>
+
+  </div>
+}

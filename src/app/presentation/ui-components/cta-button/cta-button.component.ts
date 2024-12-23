@@ -1,7 +1,7 @@
 import {Component, input} from '@angular/core';
 
 @Component({
-  selector: 'app-cta-button',
+  selector: 'cta-button',
   standalone: true,
   imports: [],
   templateUrl: './cta-button.component.html',

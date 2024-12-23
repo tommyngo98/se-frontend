@@ -6,9 +6,7 @@ import { FriendRequestService } from "../../../../../services/friend-request.ser
 @Component({
   selector: 'search-result-tile',
   standalone: true,
-  imports: [
-    CtaButtonComponent
-  ],
+  imports: [CtaButtonComponent],
   templateUrl: './search-result-tile.component.html',
   styleUrl: './search-result-tile.component.scss'
 })

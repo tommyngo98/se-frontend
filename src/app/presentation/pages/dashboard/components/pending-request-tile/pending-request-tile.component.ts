@@ -1,14 +1,12 @@
 import { Component, input } from '@angular/core';
-import {FriendRequest, RequestStatus, User} from "../../../../../data-domain/models/user.model";
-import {FriendRequestService} from "../../../../../services/friend-request.service";
-import {CtaButtonComponent} from "../../../../ui-components/cta-button/cta-button.component";
+import { FriendRequest, RequestStatus } from "../../../../../data-domain/models/user.model";
+import { FriendRequestService } from "../../../../../services/friend-request.service";
+import { CtaButtonComponent } from "../../../../ui-components/cta-button/cta-button.component";
 
 @Component({
   selector: 'pending-request-tile',
   standalone: true,
-  imports: [
-    CtaButtonComponent
-  ],
+  imports: [CtaButtonComponent],
   templateUrl: './pending-request-tile.component.html',
   styleUrl: './pending-request-tile.component.scss'
 })
@@ -24,6 +22,4 @@ export class PendingRequestTileComponent {
   public async deny(): Promise<void> {
     await this.friendRequestService.denyFriendRequest(this.request()?.from);
   }
-
-  protected readonly RequestStatus = RequestStatus;
 }

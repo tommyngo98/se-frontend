@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { SearchResultTileComponent } from "../search-result-tile/search-result-tile.component";
 import { FriendRequest, User } from "../../../../../data-domain/models/user.model";
 import { UserService } from "../../../../../services/user.service";
-import {PendingRequestTileComponent} from "../pending-request-tile/pending-request-tile.component";
+import { PendingRequestTileComponent } from "../pending-request-tile/pending-request-tile.component";
 
 @Component({
   selector: 'search-friend-modal',

@@ -7,7 +7,8 @@ import { SocketService } from "../../../services/socket.service";
 import { ChatComponent } from "./components/chat/chat.component";
 import { SearchFriendModalComponent } from "./components/search-friend-modal/search-friend-modal.component";
 import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.component";
-import {LogoutService} from "../../../services/logout.service";
+import { LogoutService } from "../../../services/logout.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -30,6 +31,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private socketService: SocketService,
     private logoutService: LogoutService,
+    private router: Router,
   ) {}
 
   public async ngOnInit(): Promise<void> {
@@ -41,6 +43,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.socketService.connect();
       } catch (error) {
         this.logoutService.logout();
+        this.router.navigate(['/home']);
       }
     }
   }

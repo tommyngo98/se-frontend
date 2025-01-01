@@ -7,6 +7,7 @@ import { SocketService } from "../../../services/socket.service";
 import { ChatComponent } from "./components/chat/chat.component";
 import { SearchFriendModalComponent } from "./components/search-friend-modal/search-friend-modal.component";
 import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.component";
+import {LogoutService} from "../../../services/logout.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -27,16 +28,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public constructor(
     private userService: UserService,
-    private socketService: SocketService
+    private socketService: SocketService,
+    private logoutService: LogoutService,
   ) {}
 
   public async ngOnInit(): Promise<void> {
     const token = localStorage.getItem('authToken');
-    if (token) {
-      this.user = await this.userService.getUserByToken(token);
-    }
 
-    this.socketService.connect();
+    if (token) {
+      try {
+        this.user = await this.userService.getUserByToken(token);
+        this.socketService.connect();
+      } catch (error) {
+        this.logoutService.logout();
+      }
+    }
   }
 
   public ngOnDestroy(): void {

@@ -22,8 +22,9 @@
         <div class="search__form">
           <input class="search__input" type="text" [(ngModel)]="userId" placeholder="User-ID" />
           <cta-button
-            [text]="'Suche'"
+            [text]="'Suchen'"
             (click)="setSearchResult(userId)"
+            [disabled]="!userId"
           ></cta-button>
         </div>
 

@@ -7,7 +7,7 @@ export interface User {
   isVisible: boolean,
   bio: string,
   chats: number[],
-  friends: number[],
+  friends: string[],
   pendingRequests: FriendRequest[],
   createdAt: Date,
   updatedAt: Date,

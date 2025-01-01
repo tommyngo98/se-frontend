@@ -1,0 +1,8 @@
+@import "../../../../../../styles/colors";
+
+:host {
+  background-color: $primary-color;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  color: $background-color;
+}

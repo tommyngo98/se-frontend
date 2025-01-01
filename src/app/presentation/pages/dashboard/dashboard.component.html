@@ -11,6 +11,8 @@
       [senderId]="this.user.user_id"
     ></app-chat>
 
+    <friends-list [friends]="friends"></friends-list>
+
     <cta-button
       class="add-friend"
       [text]="'Freund/in hinzufügen'"
@@ -23,8 +25,6 @@
         (close)="closeSearchModal()"
       ></search-friend-modal>
     }
-
-    <friends-list [friends]="friends"></friends-list>
   </main>
 }
 

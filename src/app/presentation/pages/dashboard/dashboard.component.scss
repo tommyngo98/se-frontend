@@ -10,14 +10,11 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  margin: 100px auto auto auto;
+  margin: auto;
   text-align: center;
+  gap: 30px;
 
   &__title {
     color: $background-color;
-  }
-
-  .add-friend {
-    margin-top: 100px;
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import api from '../utils/api';
 import { AxiosError } from "axios";
-import { ConfirmEmailResponse } from "../data-domain/models/confirm-email-response.model";
+import { Response } from "../data-domain/models/confirm-email-response.model";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { ConfirmEmailResponse } from "../data-domain/models/confirm-email-respon
 export class ConfirmEmailService {
   public async confirm(token: string): Promise<any> {
     try {
-      return (await api.put<ConfirmEmailResponse>(`/api/user/confirm-email?token=${token}`)).data;
+      return (await api.put<Response>(`/api/user/confirm-email?token=${token}`)).data;
     } catch (error) {
       if (error instanceof AxiosError) {
         const errorMessage = error.response?.data.msg;

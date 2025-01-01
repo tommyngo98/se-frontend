@@ -6,4 +6,7 @@
       (click)="this.sendFriendRequest(this.user()?._id)"
     ></cta-button>
   </div>
+  @if (this.response) {
+    <p>{{ this.response.msg }}</p>
+  }
 }

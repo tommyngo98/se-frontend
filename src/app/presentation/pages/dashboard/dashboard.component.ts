@@ -60,7 +60,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.socketService.disconnect();
   }
 
-  public showSearchModal(): void {
+  public async showSearchModal(): Promise<void> {
+    const token = localStorage.getItem('authToken');
+    this.user = await this.userService.getUserByToken(token ?? '');
+
     this.isSearchModalVisible = true;
   }
 

@@ -1,6 +1,8 @@
 <h2>Freunde</h2>
-@if (friends()) {
+@if (this.friends().length > 0) {
   @for (friend of friends(); track friend) {
-    <p> {{ friend.displayed_name }}</p>
+    <friends-tile [user]="friend"></friends-tile>
   }
+} @else {
+  <p>noch keine Freunde</p>
 }

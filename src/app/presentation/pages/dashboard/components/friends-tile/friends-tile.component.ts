@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
+import {User} from "../../../../../data-domain/models/user.model";
 
 @Component({
-  selector: 'app-friends-tile',
+  selector: 'friends-tile',
   standalone: true,
   imports: [],
   templateUrl: './friends-tile.component.html',
   styleUrl: './friends-tile.component.scss'
 })
 export class FriendsTileComponent {
-
+  public user = input.required<User>();
 }

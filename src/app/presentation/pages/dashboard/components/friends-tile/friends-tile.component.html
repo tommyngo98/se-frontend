@@ -1,1 +1,3 @@
-<p>friends-tile works!</p>
+@if (this.user()) {
+  <p>{{ this.user().displayed_name }}</p>
+}

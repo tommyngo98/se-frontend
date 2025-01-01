@@ -5,6 +5,9 @@ import { HeaderComponent } from "../../ui-components/header/header.component";
 import { FooterComponent } from "../../ui-components/footer/footer.component";
 import { SocketService } from "../../../services/socket.service";
 import { ChatComponent } from "./components/chat/chat.component";
+import { SearchFriendModalComponent } from "./components/search-friend-modal/search-friend-modal.component";
+import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.component";
+import { LogoutService } from "../../../services/logout.service";
 import { FriendsListComponent } from "./components/friends-list/friends-list.component";
 
 @Component({
@@ -14,6 +17,8 @@ import { FriendsListComponent } from "./components/friends-list/friends-list.com
     HeaderComponent,
     FooterComponent,
     ChatComponent,
+    SearchFriendModalComponent,
+    CtaButtonComponent,
     FriendsListComponent
   ],
   templateUrl: './dashboard.component.html',
@@ -22,27 +27,41 @@ import { FriendsListComponent } from "./components/friends-list/friends-list.com
 export class DashboardComponent implements OnInit, OnDestroy {
   public user: User | undefined;
   public friends: User[] = [];
+  public isSearchModalVisible = false;
 
   public constructor(
     private userService: UserService,
-    private socketService: SocketService
+    private socketService: SocketService,
+    private logoutService: LogoutService,
   ) {}
 
   public async ngOnInit(): Promise<void> {
     const token = localStorage.getItem('authToken');
-    if (token) {
-      this.user = await this.userService.getUserByToken(token);
 
-      for (let friendId of this.user.friends) {
-        const friend = await this.userService.getUserById(friendId);
-        this.friends.push(friend);
+    if (token) {
+      try {
+        this.user = await this.userService.getUserByToken(token);
+        this.socketService.connect();
+
+        for (let friendId of this.user.friends) {
+          const friend = await this.userService.getUserById(friendId);
+          this.friends.push(friend);
+        }
+      } catch (error) {
+        this.logoutService.logout();
       }
     }
-
-    this.socketService.connect();
   }
 
   public ngOnDestroy(): void {
     this.socketService.disconnect();
+  }
+
+  public showSearchModal(): void {
+    this.isSearchModalVisible = true;
+  }
+
+  public closeSearchModal(): void {
+    this.isSearchModalVisible = false;
   }
 }

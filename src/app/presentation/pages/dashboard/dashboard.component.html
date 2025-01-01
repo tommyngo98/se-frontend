@@ -11,6 +11,19 @@
       [senderId]="this.user.user_id"
     ></app-chat>
 
+    <cta-button
+      class="add-friend"
+      [text]="'Freund/in hinzufügen'"
+      (click)="showSearchModal()"
+    ></cta-button>
+
+    @if (this.isSearchModalVisible) {
+      <search-friend-modal
+        [pendingRequests]="this.user.pendingRequests"
+        (close)="closeSearchModal()"
+      ></search-friend-modal>
+    }
+
     <friends-list [friends]="friends"></friends-list>
   </main>
 }

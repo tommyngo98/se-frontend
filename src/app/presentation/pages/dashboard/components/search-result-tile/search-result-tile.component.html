@@ -1,0 +1,12 @@
+@if (this.user()) {
+  <div class="result">
+    <p>Name: {{ this.user()?.displayed_name }}</p>
+    <cta-button
+      [text]="'Anfrage senden'"
+      (click)="this.sendFriendRequest(this.user()?._id)"
+    ></cta-button>
+  </div>
+  @if (this.response) {
+    <p>{{ this.response.msg }}</p>
+  }
+}

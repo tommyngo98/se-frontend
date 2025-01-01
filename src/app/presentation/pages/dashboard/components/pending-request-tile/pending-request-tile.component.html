@@ -1,0 +1,5 @@
+<p>{{ request()?.from }}</p>
+<div class="ctas">
+  <cta-button [text]="'Annehmen'" (click)="this.accept()"></cta-button>
+  <cta-button [text]="'Ablehnen'" (click)="this.deny()"></cta-button>
+</div>

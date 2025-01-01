@@ -1,0 +1,6 @@
+<h2>Freunde</h2>
+@if (friends()) {
+  @for (friend of friends(); track friend) {
+    <p> {{ friend.displayed_name }}</p>
+  }
+}

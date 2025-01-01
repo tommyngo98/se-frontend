@@ -18,9 +18,9 @@ export class FriendRequestService {
     }
   }
 
-  public async acceptFriendRequest(userId?: number): Promise<string> {
+  public async acceptFriendRequest(userId?: number): Promise<Response> {
     try {
-      return (await api.put<string>(`/api/user/accept-friend-request`, { userId }, {
+      return (await api.put<Response>(`/api/user/accept-friend-request`, { userId }, {
         headers: {
           'x-auth-token': `${localStorage.getItem('authToken')}`
         }
@@ -30,9 +30,9 @@ export class FriendRequestService {
     }
   }
 
-  public async denyFriendRequest(userId?: number): Promise<string> {
+  public async denyFriendRequest(userId?: number): Promise<Response> {
     try {
-      return (await api.put<string>(`/api/user/deny-friend-request`, { userId }, {
+      return (await api.put<Response>(`/api/user/deny-friend-request`, { userId }, {
         headers: {
           'x-auth-token': `${localStorage.getItem('authToken')}`
         }

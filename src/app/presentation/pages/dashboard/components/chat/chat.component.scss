@@ -24,4 +24,16 @@ h2 {
 
 .input-container {
   margin-top: auto;
+  display: flex;
+  padding: 0 20px;
+
+  input {
+    height: 40px;
+    width: 80%;
+  }
+
+  button {
+    height: 46px;
+    width: 20%;
+  }
 }

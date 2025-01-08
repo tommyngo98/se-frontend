@@ -1,0 +1,11 @@
+@import "../../../../../../styles/colors";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host(.selected) {
+  background-color: $tertiary-color;
+}

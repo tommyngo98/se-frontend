@@ -1,7 +1,11 @@
 <h2>Freunde</h2>
 @if (this.friends().length > 0) {
   @for (friend of friends(); track friend) {
-    <friends-tile [user]="friend" [class]="'selected'"></friends-tile>
+    <friends-tile
+      [user]="friend"
+      [ngClass]="{ 'selected': friend === selectedFriend }"
+      (click)=selectFriend(friend)
+    ></friends-tile>
   }
 } @else {
   <p>noch keine Freunde</p>

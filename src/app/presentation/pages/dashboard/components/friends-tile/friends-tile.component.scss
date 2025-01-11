@@ -4,11 +4,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   cursor: pointer;
 }
 
 :host(.selected) {
   background-color: $tertiary-color;
+  border: 1px solid $secondary-color;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
 :host(:hover) {

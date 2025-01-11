@@ -9,10 +9,7 @@
     <div class="dashboard-center">
       <friends-list [friends]="friends"></friends-list>
 
-      <app-chat
-        chatId="67683a5e04c5dbd5c1a25d8e"
-        [senderId]="this.user.user_id"
-      ></app-chat>
+      <app-chat [sender]="this.user"></app-chat>
     </div>
 
     <cta-button

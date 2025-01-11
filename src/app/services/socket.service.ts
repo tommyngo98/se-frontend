@@ -34,7 +34,7 @@ export class SocketService {
     }
   }
 
-  public sendMessage(chatId: string, senderId: number, text: string): void {
+  public sendMessage(chatId: string, senderId: string, text: string): void {
     if (this.socket) {
       this.socket.emit('sendMessage', { chatId, senderId, text });
     }

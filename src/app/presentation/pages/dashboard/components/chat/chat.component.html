@@ -1,18 +1,30 @@
-@if (this.selectedfriend) {
-  <h2>Chat mit {{ this.selectedfriend?.displayed_name }}</h2>
-  <div class="message-window">
+@if (this.selectedFriend) {
+  <h2>Chat mit {{ this.selectedFriend?.displayed_name }}</h2>
+  <div class="message-window" #messageWindow>
     @for (message of messages; track message) {
-    <div>
-      {{ message.sender }}: {{ message.text }}
-    </div>
-  }
+      <div [ngClass]="{
+            'my-message': message.sender === sender().user_id,
+            'received-message': message.sender !== sender().user_id
+        }" class="message">
+        <span class="message-text">{{ message.text }}</span>
+      </div>
+    }
+    @if (this.messages?.length === 0) {
+      <div class="empty-chat">
+        <p>Keine Nachrichten in diesem Chat.</p>
+      </div>
+    }
   </div>
 
   <div class="input-container">
-    <input [(ngModel)]="message" placeholder="Nachricht eingeben"/>
-    <button (click)="sendMessage()">Senden</button>
+    <input
+      [(ngModel)]="message"
+      placeholder="Nachricht eingeben"
+      (keydown.enter)="sendMessage()"
+    />
+    <cta-button [text]="'Senden'" (click)="sendMessage()"></cta-button>
   </div>
 } @else {
-  <p class="empty-chat">Starte einen Chat</p>
+  <p class="no-chat-selected">Starte einen Chat</p>
 }
 

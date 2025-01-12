@@ -1,11 +1,7 @@
-<app-header></app-header>
+<app-header [username]="this.user?.displayed_name"></app-header>
 
 @if (this.user) {
   <main class="dashboard-page">
-    <h2 class="dashboard-page__title">
-      Willkommen, {{ this.user.displayed_name }}
-    </h2>
-
     <app-chat
       chatId="67683a5e04c5dbd5c1a25d8e"
       [senderId]="this.user.user_id"

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CtaButtonComponent } from "../cta-button/cta-button.component";
 import { LogoutService } from "../../../services/logout.service";
 import { Router } from "@angular/router";
@@ -11,6 +11,8 @@ import { Router } from "@angular/router";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  public username = input<string>();
+
   public constructor(private logoutService: LogoutService, private router: Router) {}
 
   public redirectToHome(): void {

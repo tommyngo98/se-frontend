@@ -2,10 +2,6 @@
 
 @if (this.user) {
   <main class="dashboard-page">
-    <h2 class="dashboard-page__title">
-      Willkommen, {{ this.user.displayed_name }}
-    </h2>
-
     <div class="dashboard-center">
       <friends-list [friends]="friends"></friends-list>
       <app-chat [sender]="this.user"></app-chat>

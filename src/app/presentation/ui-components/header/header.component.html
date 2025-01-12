@@ -1,6 +1,9 @@
 <h1 (click)="this.redirectToHome()">Plausch</h1>
 
 @if (this.isLoggedIn()) {
-  <cta-button [text]="'Abmelden'" (click)="this.logout()"></cta-button>
+  <div class="right-side">
+    <span class="username">{{ this.username() }}</span>
+    <cta-button [text]="'Abmelden'" (click)="this.logout()"></cta-button>
+  </div>
 }
 

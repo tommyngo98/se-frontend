@@ -6,7 +6,7 @@ import { User } from "../data-domain/models/user.model";
   providedIn: 'root'
 })
 export class UserService {
-  public async getUserById(userId?: number): Promise<User> {
+  public async getUserById(userId?: string): Promise<User> {
     try {
       return (await api.get<User>(`/api/user/${userId}`)).data
     } catch (error) {

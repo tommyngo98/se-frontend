@@ -7,6 +7,7 @@ import { SocketService } from "../../../services/socket.service";
 import { ChatComponent } from "./components/chat/chat.component";
 import { SearchFriendModalComponent } from "./components/search-friend-modal/search-friend-modal.component";
 import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.component";
+import { FriendsListComponent } from "./components/friends-list/friends-list.component";
 import { LogoutService } from "../../../services/logout.service";
 import { Router } from "@angular/router";
 
@@ -18,13 +19,15 @@ import { Router } from "@angular/router";
     FooterComponent,
     ChatComponent,
     SearchFriendModalComponent,
-    CtaButtonComponent
+    CtaButtonComponent,
+    FriendsListComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   public user: User | undefined;
+  public friends: User[] = [];
   public isSearchModalVisible = false;
 
   public constructor(
@@ -41,6 +44,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
       try {
         this.user = await this.userService.getUserByToken(token);
         this.socketService.connect();
+
+        for (let friendId of this.user.friends) {
+          const friend = await this.userService.getUserById(friendId);
+          this.friends.push(friend);
+        }
       } catch (error) {
         this.logoutService.logout();
         this.router.navigate(['/home']);
@@ -52,7 +60,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.socketService.disconnect();
   }
 
-  public showSearchModal(): void {
+  public async showSearchModal(): Promise<void> {
+    const token = localStorage.getItem('authToken');
+    this.user = await this.userService.getUserByToken(token ?? '');
+
     this.isSearchModalVisible = true;
   }
 

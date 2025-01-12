@@ -22,13 +22,13 @@ export class SearchFriendModalComponent {
   @Output() close = new EventEmitter<void>();
 
   public pendingRequests = input<FriendRequest[]>();
-  public userId?: number;
+  public userId?: string;
   public foundUser: User | undefined;
   public activeTab: string = 'add-friend';
 
   public constructor(private userService: UserService) {}
 
-  public async setSearchResult(userId?: number): Promise<void> {
+  public async setSearchResult(userId?: string): Promise<void> {
     this.foundUser = undefined;
     this.foundUser = await this.userService.getUserById(userId)
   }

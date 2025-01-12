@@ -1,13 +1,13 @@
 export interface User {
   _id: string,
-  user_id: number,
+  user_id: string,
   displayed_name: string,
   email: string,
   isConfirmed: boolean,
   isVisible: boolean,
   bio: string,
-  chats: number[],
-  friends: number[],
+  chats: ChatConnection[],
+  friends: string[],
   pendingRequests: FriendRequest[],
   createdAt: Date,
   updatedAt: Date,
@@ -17,6 +17,11 @@ export interface FriendRequest {
   from: number,
   _id: string,
   status: RequestStatus,
+}
+
+export interface ChatConnection {
+  chatId: string,
+  friendId: string,
 }
 
 export enum RequestStatus {

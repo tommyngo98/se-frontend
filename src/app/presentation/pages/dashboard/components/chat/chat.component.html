@@ -1,5 +1,5 @@
 @if (this.selectedFriend) {
-  <h2>Chat mit {{ this.selectedFriend?.displayed_name }}</h2>
+  <h2>Chat mit {{ this.selectedFriend.displayed_name }}</h2>
   <div class="message-window" #messageWindow>
     @for (message of messages; track message) {
       <div [ngClass]="{
@@ -9,7 +9,7 @@
         <span class="message-text">{{ message.text }}</span>
       </div>
     }
-    @if (this.messages?.length === 0) {
+    @if (this.messages.length === 0) {
       <div class="empty-chat">
         <p>Keine Nachrichten in diesem Chat.</p>
       </div>

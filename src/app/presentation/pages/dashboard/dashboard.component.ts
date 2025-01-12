@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         }
       } catch (error) {
         this.logoutService.logout();
-        this.router.navigate(['/home']);
+        await this.router.navigate(['/home']);
       }
     }
   }

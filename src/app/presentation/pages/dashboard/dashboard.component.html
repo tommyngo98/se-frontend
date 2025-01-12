@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [username]="this.user?.displayed_name"></app-header>
 
 @if (this.user) {
   <main class="dashboard-page">

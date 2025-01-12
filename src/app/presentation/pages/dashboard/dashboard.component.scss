@@ -13,7 +13,6 @@
   height: 80%;
   margin: auto;
   text-align: center;
-  gap: 30px;
 
   &__title {
     color: $background-color;
@@ -21,7 +20,7 @@
 }
 
 cta-button {
-  margin-top: auto;
+  margin-top: 20px;
 }
 
 .dashboard-center {

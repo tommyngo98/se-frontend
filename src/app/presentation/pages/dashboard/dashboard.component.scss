@@ -9,11 +9,31 @@
 .dashboard-page {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin: 100px auto auto auto;
+  width: 80%;
+  height: 80%;
+  margin: auto;
   text-align: center;
 
   &__title {
     color: $background-color;
+  }
+}
+
+cta-button {
+  margin-top: 20px;
+}
+
+.dashboard-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+
+  app-chat {
+    width: 65%;
+  }
+
+  friends-list {
+    width: 35%;
   }
 }

@@ -1,25 +1,30 @@
 export interface User {
-  user_id: number,
+  _id: string,
+  user_id: string,
   displayed_name: string,
   email: string,
   isConfirmed: boolean,
   isVisible: boolean,
   bio: string,
-  chats: number[],
-  friends: number[],
-  pendingRequests: FriendRequests[],
+  chats: ChatConnection[],
+  friends: string[],
+  pendingRequests: FriendRequest[],
   createdAt: Date,
   updatedAt: Date,
 }
 
-interface FriendRequests {
+export interface FriendRequest {
   from: number,
-  to: number,
-  timestamp: Date,
+  _id: string,
   status: RequestStatus,
 }
 
-enum RequestStatus {
+export interface ChatConnection {
+  chatId: string,
+  friendId: string,
+}
+
+export enum RequestStatus {
   PENDING = 'pending',
   ACCEPTED = 'accepted',
   DENIED = 'denied',

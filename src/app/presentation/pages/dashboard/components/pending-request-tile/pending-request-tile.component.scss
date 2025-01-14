@@ -1,0 +1,14 @@
+@import "../../../../../../styles/colors";
+
+:host {
+  display: block;
+  background: $secondary-color;
+  padding: 10px 0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.ctas {
+  display: flex;
+  justify-content: space-around;
+}

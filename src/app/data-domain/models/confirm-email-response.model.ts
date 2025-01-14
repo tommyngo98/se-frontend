@@ -1,3 +1,3 @@
-export interface ConfirmEmailResponse {
+export interface Response {
   msg: string,
 }

@@ -1,6 +1,7 @@
 import {Message} from "./message.model";
 
 export interface Chat {
-  members: number[],
+  _id: number,
   messages: Message[],
+  participants: number[],
 }

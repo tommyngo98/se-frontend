@@ -3,7 +3,7 @@
 @if (this.isLoggedIn()) {
   <div class="right-side">
     <span class="username">{{ this.username() }}</span>
-    <app-cta-button [text]="'Abmelden'" (click)="this.logout()"></app-cta-button>
+    <cta-button [text]="'Abmelden'" (click)="this.logout()"></cta-button>
   </div>
 }
 

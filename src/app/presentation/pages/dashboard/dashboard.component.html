@@ -2,10 +2,23 @@
 
 @if (this.user) {
   <main class="dashboard-page">
-    <app-chat
-      chatId="67683a5e04c5dbd5c1a25d8e"
-      [senderId]="this.user.user_id"
-    ></app-chat>
+    <div class="dashboard-center">
+      <friends-list [friends]="friends"></friends-list>
+      <app-chat [sender]="this.user"></app-chat>
+    </div>
+
+    <cta-button
+      class="add-friend"
+      [text]="'Freund/in hinzufügen'"
+      (click)="showSearchModal()"
+    ></cta-button>
+
+    @if (this.isSearchModalVisible) {
+      <search-friend-modal
+        [pendingRequests]="this.user.pendingRequests"
+        (close)="closeSearchModal()"
+      ></search-friend-modal>
+    }
   </main>
 }
 

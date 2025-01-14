@@ -46,9 +46,6 @@ export class ChatComponent implements OnInit {
     );
 
     this.socketService.onNewMessage().subscribe((message) => {
-      if (!this.messages) {
-        this.messages = [];
-      }
       this.messages.push(message);
       this.scrollToBottom();
     });
@@ -56,7 +53,7 @@ export class ChatComponent implements OnInit {
 
   public sendMessage(): void {
     if (this.message.trim() && this.chatId) {
-      this.socketService.sendMessage(this.chatId, this.sender().user_id, this.message);
+      this.socketService.sendMessage(this.chatId, this.message);
       this.message = '';
       this.scrollToBottom();
     }

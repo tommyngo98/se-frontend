@@ -28,9 +28,9 @@ export class SearchFriendModalComponent {
 
   public constructor(private userService: UserService) {}
 
-  public async setSearchResult(userId?: string): Promise<void> {
+  public async setSearchResult(userIndex?: string): Promise<void> {
     this.foundUser = undefined;
-    this.foundUser = await this.userService.getUserById(userId)
+    this.foundUser = await this.userService.getUserByIndex(userIndex)
   }
 
   public setActiveTab(tab: string): void {

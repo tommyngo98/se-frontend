@@ -8,11 +8,20 @@ import { User } from "../data-domain/models/user.model";
 export class UserService {
   public async getUserById(userId?: string): Promise<User> {
     try {
-      return (await api.get<User>(`/api/user/${userId}`)).data
+      return (await api.get<User>(`/api/user/byID/${userId}`)).data
     } catch (error) {
       throw error;
     }
   }
+
+  public async getUserByIndex(userIndex?: string): Promise<User> {
+    try {
+      return (await api.get<User>(`/api/user/byIndex/${userIndex}`)).data
+    } catch (error) {
+      throw error;
+    }
+  }
+
 
   public async getUserByToken(token: string): Promise<User> {
     try {

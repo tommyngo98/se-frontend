@@ -17,7 +17,7 @@ export class SearchResultTileComponent {
 
   public constructor(private friendRequestService: FriendRequestService) {}
 
-  public async sendFriendRequest(userId?: string): Promise<void> {
-    this.response = await this.friendRequestService.sendFriendRequest(userId);
+  public async sendFriendRequest(userIndex?: string): Promise<void> {
+    this.response = await this.friendRequestService.sendFriendRequest(userIndex);
   }
 }

@@ -6,9 +6,9 @@ import { Response } from "../data-domain/models/confirm-email-response.model";
   providedIn: 'root'
 })
 export class FriendRequestService {
-  public async sendFriendRequest(userId?: string): Promise<Response> {
+  public async sendFriendRequest(userIndex?: String): Promise<Response> {
     try {
-      return (await api.put<Response>(`/api/user/friend-request`, { userId }, {
+      return (await api.put<Response>(`/api/user/friend-request`, { userIndex }, {
         headers: {
           'x-auth-token': `${localStorage.getItem('authToken')}`
         }

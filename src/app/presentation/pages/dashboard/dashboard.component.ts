@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from "../../../services/user.service";
 import { User } from "../../../data-domain/models/user.model";
 import { HeaderComponent } from "../../ui-components/header/header.component";
@@ -10,6 +10,7 @@ import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.co
 import { FriendsListComponent } from "./components/friends-list/friends-list.component";
 import { LogoutService } from "../../../services/logout.service";
 import { Router } from "@angular/router";
+import { NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,8 @@ import { Router } from "@angular/router";
     ChatComponent,
     SearchFriendModalComponent,
     CtaButtonComponent,
-    FriendsListComponent
+    FriendsListComponent,
+    NgClass
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
@@ -29,6 +31,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public user: User | undefined;
   public friends: User[] = [];
   public isSearchModalVisible = false;
+  public isFriendsListVisible = true;
+
+  public isMobileView: boolean = false;
+
 
   public constructor(
     private userService: UserService,
@@ -38,6 +44,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ) {}
 
   public async ngOnInit(): Promise<void> {
+    this.checkIfMobile();
+
     const token = localStorage.getItem('authToken');
 
     if (token) {
@@ -56,8 +64,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   }
 
+  @HostListener('window:resize', ['$event'])
+  public checkIfMobile(): void {
+    this.isMobileView = window.innerWidth <= 768;
+    this.isFriendsListVisible = window.innerWidth > 768;
+  }
+
   public ngOnDestroy(): void {
     this.socketService.disconnect();
+  }
+
+  public toggleFriendsList(): void {
+    this.isFriendsListVisible = !this.isFriendsListVisible;
   }
 
   public async showSearchModal(): Promise<void> {

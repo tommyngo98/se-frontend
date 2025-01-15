@@ -9,7 +9,7 @@
 .dashboard-page {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 95%;
   height: 80%;
   margin: auto;
   text-align: center;
@@ -31,9 +31,42 @@ cta-button {
 
   app-chat {
     width: 65%;
+    transition: width 0.3s ease;
+  }
+
+  app-chat.full-width {
+    width: 100%;
   }
 
   friends-list {
     width: 35%;
+  }
+
+  .toggle-friends-button {
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid $background-color;
+      transform: translate(-50%, -50%) rotate(90deg);
+      transition: transform 0.3s ease;
+    }
+
+    &.rotated::before {
+      transform: translate(-50%, -50%) rotate(-90deg);
+    }
   }
 }

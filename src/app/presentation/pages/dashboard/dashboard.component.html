@@ -3,8 +3,19 @@
 @if (this.user) {
   <main class="dashboard-page">
     <div class="dashboard-center">
-      <friends-list [friends]="friends"></friends-list>
-      <app-chat [sender]="this.user"></app-chat>
+      @if (isMobileView) {
+        <button class="toggle-friends-button"
+          (click)="toggleFriendsList()"
+          [ngClass]="{ 'rotated': !isFriendsListVisible }"
+        ></button>
+      }
+      @if (isFriendsListVisible) {
+        <friends-list [friends]="friends"></friends-list>
+      }
+      <app-chat
+        [sender]="this.user"
+        [ngClass]="{'full-width': !isFriendsListVisible}"
+      ></app-chat>
     </div>
 
     <cta-button

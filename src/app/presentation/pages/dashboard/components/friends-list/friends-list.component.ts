@@ -22,6 +22,10 @@ export class FriendsListComponent {
   public selectedFriend: User | undefined;
 
   public selectFriend(friend: User) {
+    if (friend._id === this.selectedFriend?._id) {
+      return;
+    }
+
     this.selectedFriend = friend;
     this.selectFriendService.selectFriend(friend);
   }

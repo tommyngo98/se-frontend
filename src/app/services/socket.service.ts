@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 import { Observable, Subject } from 'rxjs';
+import { Message } from "../data-domain/models/message.model";
+import { Chat } from "../data-domain/models/chat.model";
+import { flattenObject } from "../utils/flatten-object";
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +11,8 @@ import { Observable, Subject } from 'rxjs';
 export class SocketService {
   private socket: Socket | undefined;
   private errorSubject = new Subject<string>();
-  private newMessageSubject = new Subject<any>();
+  private newMessageSubject = new Subject<Message>();
+  private storedMessagesSubject = new Subject<Chat>();
 
   public connect(): void {
     const token = localStorage.getItem('authToken');
@@ -17,7 +21,7 @@ export class SocketService {
       path: '/socket.io',
       withCredentials: true,
       auth: {
-        token: token, // Include the authToken during connection
+        token: token,
       },
     });
 
@@ -35,8 +39,15 @@ export class SocketService {
     });
 
     this.socket.on('newMessage', (message) => {
-      console.log('New message received:', message);
       this.newMessageSubject.next(message);
+    });
+
+    this.socket.on('chatData', (data: Chat) => {
+      const messages: Message[] = data.messages.map((message => {
+        return flattenObject(message);
+      }))
+
+      this.storedMessagesSubject.next({...data, messages});
     });
   }
 
@@ -50,6 +61,10 @@ export class SocketService {
     if (this.socket) {
       this.socket.emit('sendMessage', { chatId, text });
     }
+  }
+
+  public onStoredMessages(): Observable<any> {
+    return this.storedMessagesSubject.asObservable();
   }
 
   public onNewMessage(): Observable<any> {

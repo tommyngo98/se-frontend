@@ -1,6 +1,6 @@
 export interface Message {
   _id: string,
-  sender: number,
+  from: string,
   text: string,
   timestamp: Date,
   isDeleted: boolean,

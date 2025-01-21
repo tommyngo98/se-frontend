@@ -27,7 +27,7 @@ h2 {
 .message-window {
   padding: 20px;
   overflow-y: scroll;
-  max-height: 500px;
+  max-height: 80%;
 }
 
 .message {
@@ -57,7 +57,7 @@ h2 {
 }
 
 .message-text {
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
   hyphens: auto;
 }
 

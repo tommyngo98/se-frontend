@@ -51,6 +51,6 @@
       <p [innerText]="this.errorMessage()"></p>
     }
 
-    <button class="form__button-submit" type="submit" [disabled]="form.invalid">{{ actionType() }}</button>
+    <cta-button [text]="actionType()" [type]="'submit'" [disabled]="form.invalid"></cta-button>
   </form>
 

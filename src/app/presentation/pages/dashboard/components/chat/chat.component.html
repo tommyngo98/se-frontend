@@ -1,16 +1,27 @@
 @if (this.selectedFriend) {
   <h2>Chat mit {{ this.selectedFriend.displayed_name }}</h2>
   <div class="message-window" #messageWindow>
-    @for (message of messages; track message) {
-      <div [ngClass]="{
-            'my-message': message.from === sender()._id,
-            'received-message': message.from !== sender()._id
-        }" class="message">
-        <span class="message-text">{{ message.text }}</span>
+    @for (date of groupedMessages | keyvalue; track date) {
+      <div>
+        <div class="date-header">
+          {{ date.key | dateTranslate }}
+        </div>
+
+        @for (message of date.value; track message) {
+          <div
+            [ngClass]="{
+              'my-message': message.from === sender()._id,
+              'received-message': message.from !== sender()._id
+            }"
+            class="message"
+          >
+            <span class="message-text">{{ message.text }}</span>
+          </div>
+        }
       </div>
     }
 
-    @if (this.messages.length === 0 && this.messagesLoaded) {
+    @if (Object.keys(groupedMessages).length <= 0 && this.messagesLoaded) {
       <div class="empty-chat">
         <p>Keine Nachrichten in diesem Chat.</p>
       </div>

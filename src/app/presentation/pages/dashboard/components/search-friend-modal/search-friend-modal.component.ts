@@ -25,16 +25,24 @@ export class SearchFriendModalComponent {
   public userId?: string;
   public foundUser: User | undefined;
   public activeTab: string = 'add-friend';
+  public errorMessage: string | undefined;
 
   public constructor(private userService: UserService) {}
 
   public async setSearchResult(userIndex?: string): Promise<void> {
     this.foundUser = undefined;
-    this.foundUser = await this.userService.getUserByIndex(userIndex)
+    this.errorMessage = '';
+
+    try {
+      this.foundUser = await this.userService.getUserByIndex(userIndex);
+    } catch (e) {
+      this.errorMessage = 'Nutzer nicht gefunden.'
+    }
   }
 
   public setActiveTab(tab: string): void {
     this.activeTab = tab;
+    this.errorMessage = '';
   }
 
   public closeModal(): void {

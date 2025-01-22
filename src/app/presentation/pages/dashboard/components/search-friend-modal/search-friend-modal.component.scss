@@ -23,6 +23,10 @@
   min-height: 260px;
 }
 
+.error {
+  color: $tertiary-color;
+}
+
 .modal-tabs {
   display: flex;
   margin-bottom: 20px;

@@ -10,6 +10,7 @@ import { Chat } from "../../../../../data-domain/models/chat.model";
 import { Subscription } from "rxjs";
 import { groupMessagesByDate } from "../../../../../utils/group-messages-by-date";
 import { DateTranslatePipe } from "../../../../../utils/pipes/date-translate.pipe";
+import {getTime} from "../../../../../utils/get-time";
 
 @Component({
   selector: 'app-chat',
@@ -106,4 +107,5 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   protected readonly Object = Object;
+  protected readonly getTime = getTime;
 }

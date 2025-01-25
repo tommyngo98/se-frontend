@@ -7,17 +7,16 @@ import { InputFormComponent } from "../../ui-components/input-form/input-form.co
 import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.component";
 
 @Component({
-  selector: 'app-confirm-email',
-  standalone: true,
-  imports: [
-    HeaderComponent,
-    FooterComponent,
-    InputFormComponent,
-    CtaButtonComponent,
-    RouterLink
-  ],
-  templateUrl: './confirm-email.component.html',
-  styleUrl: './confirm-email.component.scss'
+    selector: 'app-confirm-email',
+    imports: [
+        HeaderComponent,
+        FooterComponent,
+        InputFormComponent,
+        CtaButtonComponent,
+        RouterLink
+    ],
+    templateUrl: './confirm-email.component.html',
+    styleUrl: './confirm-email.component.scss'
 })
 export class ConfirmEmailComponent implements OnInit {
   public errorMessage = '';

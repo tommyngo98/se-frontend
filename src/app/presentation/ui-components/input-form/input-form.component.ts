@@ -3,11 +3,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'input-form',
-  templateUrl: './input-form.component.html',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  styleUrls: ['./input-form.component.scss']
+    selector: 'input-form',
+    templateUrl: './input-form.component.html',
+    imports: [ReactiveFormsModule, CommonModule],
+    styleUrls: ['./input-form.component.scss']
 })
 export class InputFormComponent implements OnChanges {
   public form: FormGroup;

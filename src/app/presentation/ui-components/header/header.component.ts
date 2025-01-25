@@ -4,11 +4,10 @@ import { LogoutService } from "../../../services/logout.service";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [CtaButtonComponent],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+    selector: 'app-header',
+    imports: [CtaButtonComponent],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   public username = input<string>();

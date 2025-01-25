@@ -5,14 +5,13 @@ import { NgClass } from "@angular/common";
 import { SelectFriendService } from "../../../../../services/select-friend.service";
 
 @Component({
-  selector: 'friends-list',
-  standalone: true,
-  imports: [
-    FriendsTileComponent,
-    NgClass
-  ],
-  templateUrl: './friends-list.component.html',
-  styleUrl: './friends-list.component.scss'
+    selector: 'friends-list',
+    imports: [
+        FriendsTileComponent,
+        NgClass
+    ],
+    templateUrl: './friends-list.component.html',
+    styleUrl: './friends-list.component.scss'
 })
 export class FriendsListComponent {
   public constructor(private selectFriendService: SelectFriendService) {}

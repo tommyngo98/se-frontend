@@ -7,11 +7,10 @@ import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.co
 import { FooterComponent } from "../../ui-components/footer/footer.component";
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [RouterLink, InputFormComponent, HeaderComponent, CtaButtonComponent, FooterComponent],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+    selector: 'app-login',
+    imports: [RouterLink, InputFormComponent, HeaderComponent, CtaButtonComponent, FooterComponent],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss'
 })
 export class LoginComponent {
   public errorMessage = '';

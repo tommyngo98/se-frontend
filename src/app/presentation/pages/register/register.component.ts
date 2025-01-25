@@ -6,11 +6,10 @@ import { HeaderComponent } from "../../ui-components/header/header.component";
 import { FooterComponent } from "../../ui-components/footer/footer.component";
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
-  imports: [RouterLink, InputFormComponent, HeaderComponent, FooterComponent],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+    selector: 'app-register',
+    imports: [RouterLink, InputFormComponent, HeaderComponent, FooterComponent],
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
   public errorMessage = '';

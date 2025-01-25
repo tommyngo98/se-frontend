@@ -10,11 +10,10 @@ import { Chat } from "../../../../../data-domain/models/chat.model";
 import { Subscription } from "rxjs";
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrl: './chat.component.scss',
-  imports: [FormsModule, NgClass, CtaButtonComponent],
-  standalone: true
+    selector: 'app-chat',
+    templateUrl: './chat.component.html',
+    styleUrl: './chat.component.scss',
+    imports: [FormsModule, NgClass, CtaButtonComponent]
 })
 export class ChatComponent implements OnInit, OnDestroy {
   @ViewChild('messageWindow') messageWindow!: ElementRef;

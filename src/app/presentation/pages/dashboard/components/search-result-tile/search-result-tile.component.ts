@@ -5,11 +5,10 @@ import { FriendRequestService } from "../../../../../services/friend-request.ser
 import { Response } from "../../../../../data-domain/models/confirm-email-response.model";
 
 @Component({
-  selector: 'search-result-tile',
-  standalone: true,
-  imports: [CtaButtonComponent],
-  templateUrl: './search-result-tile.component.html',
-  styleUrl: './search-result-tile.component.scss'
+    selector: 'search-result-tile',
+    imports: [CtaButtonComponent],
+    templateUrl: './search-result-tile.component.html',
+    styleUrl: './search-result-tile.component.scss'
 })
 export class SearchResultTileComponent {
   public user = input<User>();

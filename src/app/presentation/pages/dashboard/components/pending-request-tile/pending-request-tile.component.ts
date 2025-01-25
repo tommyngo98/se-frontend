@@ -5,11 +5,10 @@ import { CtaButtonComponent } from "../../../../ui-components/cta-button/cta-but
 import { Response } from "../../../../../data-domain/models/confirm-email-response.model";
 
 @Component({
-  selector: 'pending-request-tile',
-  standalone: true,
-  imports: [CtaButtonComponent],
-  templateUrl: './pending-request-tile.component.html',
-  styleUrl: './pending-request-tile.component.scss'
+    selector: 'pending-request-tile',
+    imports: [CtaButtonComponent],
+    templateUrl: './pending-request-tile.component.html',
+    styleUrl: './pending-request-tile.component.scss'
 })
 export class PendingRequestTileComponent {
   @Input()

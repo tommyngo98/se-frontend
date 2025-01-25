@@ -6,17 +6,16 @@ import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.co
 import { RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'app-error',
-  standalone: true,
-  imports: [
-    FooterComponent,
-    HeaderComponent,
-    InputFormComponent,
-    CtaButtonComponent,
-    RouterLink
-  ],
-  templateUrl: './error.component.html',
-  styleUrl: './error.component.scss'
+    selector: 'app-error',
+    imports: [
+        FooterComponent,
+        HeaderComponent,
+        InputFormComponent,
+        CtaButtonComponent,
+        RouterLink
+    ],
+    templateUrl: './error.component.html',
+    styleUrl: './error.component.scss'
 })
 export class ErrorComponent {
 

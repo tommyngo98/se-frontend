@@ -7,16 +7,15 @@ import { UserService } from "../../../../../services/user.service";
 import { PendingRequestTileComponent } from "../pending-request-tile/pending-request-tile.component";
 
 @Component({
-  selector: 'search-friend-modal',
-  standalone: true,
-  imports: [
-    CtaButtonComponent,
-    FormsModule,
-    SearchResultTileComponent,
-    PendingRequestTileComponent
-  ],
-  templateUrl: './search-friend-modal.component.html',
-  styleUrl: './search-friend-modal.component.scss'
+    selector: 'search-friend-modal',
+    imports: [
+        CtaButtonComponent,
+        FormsModule,
+        SearchResultTileComponent,
+        PendingRequestTileComponent
+    ],
+    templateUrl: './search-friend-modal.component.html',
+    styleUrl: './search-friend-modal.component.scss'
 })
 export class SearchFriendModalComponent {
   @Output() close = new EventEmitter<void>();

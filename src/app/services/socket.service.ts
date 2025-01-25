@@ -17,7 +17,7 @@ export class SocketService {
   public connect(): void {
     const token = localStorage.getItem('authToken');
 
-    this.socket = io('http://localhost:5005', {
+    this.socket = io('https://plausch-be21aacfcc9f.herokuapp.com/', {
       path: '/socket.io',
       withCredentials: true,
       auth: {

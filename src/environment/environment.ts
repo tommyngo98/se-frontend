@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:5005'
+  apiBaseUrl: 'https://plausch-be21aacfcc9f.herokuapp.com/'
 };

@@ -1,12 +1,13 @@
-import {Component, EventEmitter, Input, input, OnChanges, Output} from '@angular/core';
+import { Component, EventEmitter, Input, input, OnChanges, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from "@angular/common";
+import { CtaButtonComponent } from "../cta-button/cta-button.component";
 
 @Component({
   selector: 'input-form',
   templateUrl: './input-form.component.html',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, CtaButtonComponent],
   styleUrls: ['./input-form.component.scss']
 })
 export class InputFormComponent implements OnChanges {

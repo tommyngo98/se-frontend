@@ -10,4 +10,5 @@ import {Component, input} from '@angular/core';
 export class CtaButtonComponent {
   public text = input.required<string>();
   public disabled = input<boolean>();
+  public type = input< 'button' | 'submit'>('button');
 }

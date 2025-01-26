@@ -1,4 +1,4 @@
-<app-header [username]="this.user?.displayed_name"></app-header>
+<app-header [user]="this.user"></app-header>
 
 @if (this.user) {
   <main class="dashboard-page">
@@ -10,7 +10,10 @@
         ></button>
       }
       @if (isFriendsListVisible) {
-        <friends-list [friends]="friends"></friends-list>
+        <friends-list
+          [friends]="friends"
+          (showSearchModalEvent)="showSearchModal()">
+        </friends-list>
       }
       <app-chat
         [sender]="this.user"
@@ -18,11 +21,7 @@
       ></app-chat>
     </div>
 
-    <cta-button
-      class="add-friend"
-      [text]="'Freund/in hinzufügen'"
-      (click)="showSearchModal()"
-    ></cta-button>
+
 
     @if (this.isSearchModalVisible) {
       <search-friend-modal

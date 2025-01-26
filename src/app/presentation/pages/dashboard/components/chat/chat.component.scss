@@ -27,7 +27,7 @@ h2 {
 .message-window {
   padding: 20px;
   overflow-y: scroll;
-  max-height: 500px;
+  max-height: 80%;
 }
 
 .message {
@@ -49,7 +49,8 @@ h2 {
 
 .received-message,
 .my-message {
-  padding: 10px;
+  position: relative;
+  padding: 10px 40px 15px 10px;
   margin-bottom: 10px;
   border-radius: 10px;
   max-width: 50%;
@@ -57,7 +58,19 @@ h2 {
 }
 
 .message-text {
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.message-time {
+  position: absolute;
+  right: 5px;
+  bottom: 3px;
+  font-size: 10px;
+}
+
+.date-header {
+  padding: 15px 0;
 }
 
 .input-container {

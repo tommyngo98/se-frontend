@@ -28,6 +28,10 @@
           ></cta-button>
         </div>
 
+        @if (this.errorMessage) {
+          <p class="error">{{ this.errorMessage }}</p>
+        }
+
         @if (this.foundUser) {
           <div class="search__result">
             <search-result-tile [user]="this.foundUser"></search-result-tile>

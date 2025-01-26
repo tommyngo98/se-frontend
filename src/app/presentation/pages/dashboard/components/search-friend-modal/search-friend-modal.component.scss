@@ -11,7 +11,7 @@
 }
 
 .modal-content {
-  width: 50%;
+  min-width: 80%;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -21,6 +21,10 @@
   border-radius: 8px;
   z-index: 1001;
   min-height: 260px;
+}
+
+.error {
+  color: $tertiary-color;
 }
 
 .modal-tabs {

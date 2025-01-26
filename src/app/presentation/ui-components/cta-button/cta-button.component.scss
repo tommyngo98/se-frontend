@@ -30,5 +30,12 @@ button {
 
 button:hover,
 button:focus {
-  background-color: #F082AC;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+button:disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
 }

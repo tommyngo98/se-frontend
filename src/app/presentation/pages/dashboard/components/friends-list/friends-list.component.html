@@ -1,12 +1,19 @@
 <h2>Freunde</h2>
 @if (this.friends().length > 0) {
-  @for (friend of friends(); track friend) {
-    <friends-tile
-      [user]="friend"
-      [ngClass]="{ 'selected': friend === selectedFriend }"
-      (click)=selectFriend(friend)
-    ></friends-tile>
-  }
+  <div class="friends-list">
+    @for (friend of friends(); track friend) {
+      <friends-tile
+        [user]="friend"
+        [ngClass]="{ 'selected': friend === selectedFriend }"
+        (click)=selectFriend(friend)
+      ></friends-tile>
+    }
+  </div>
 } @else {
   <p>noch keine Freunde</p>
 }
+<cta-button
+  class="add-friend"
+  [text]="'+'"
+  (click)="showSearchModal()"
+></cta-button>

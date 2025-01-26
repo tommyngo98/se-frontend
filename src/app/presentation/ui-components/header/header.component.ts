@@ -2,6 +2,7 @@ import { Component, input } from '@angular/core';
 import { CtaButtonComponent } from "../cta-button/cta-button.component";
 import { LogoutService } from "../../../services/logout.service";
 import { Router } from "@angular/router";
+import { User } from "../../../data-domain/models/user.model";
 
 @Component({
     selector: 'app-header',
@@ -10,7 +11,7 @@ import { Router } from "@angular/router";
     styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  public username = input<string>();
+  public user = input<User>();
 
   public constructor(private logoutService: LogoutService, private router: Router) {}
 

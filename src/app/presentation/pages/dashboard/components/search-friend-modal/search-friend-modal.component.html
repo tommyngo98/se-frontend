@@ -11,8 +11,12 @@
     <button
       [class.active]="activeTab === 'pending-requests'"
       (click)="setActiveTab('pending-requests')"
+      class="pending-requests"
     >
       Offene Anfragen
+      @if (showHint()) {
+        <div class="circle">!</div>
+      }
     </button>
   </div>
 

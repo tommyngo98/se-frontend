@@ -1,4 +1,4 @@
-import { Component, EventEmitter, input, Output } from '@angular/core';
+import { Component, computed, EventEmitter, input, Output } from '@angular/core';
 import { CtaButtonComponent } from "../../../../ui-components/cta-button/cta-button.component";
 import { FormsModule } from "@angular/forms";
 import { SearchResultTileComponent } from "../search-result-tile/search-result-tile.component";
@@ -22,6 +22,9 @@ export class SearchFriendModalComponent {
   @Output() close = new EventEmitter<void>();
 
   public pendingRequests = input<FriendRequest[]>();
+  public showHint = computed(() => {
+    return this.pendingRequests()?.length;
+  });
   public userId?: string;
   public foundUser: User | undefined;
   public activeTab: string = 'add-friend';

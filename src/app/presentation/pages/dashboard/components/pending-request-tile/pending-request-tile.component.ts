@@ -21,6 +21,7 @@ export class PendingRequestTileComponent {
   public async accept(): Promise<void> {
     this.response = await this.friendRequestService.acceptFriendRequest(this.request?.from);
     this.request = undefined;
+    window.location.reload();
   }
 
   public async deny(): Promise<void> {

@@ -1,5 +1,5 @@
-@if (this.request) {
-  <p>{{ this.request.from }}</p>
+@if (this.request && this.requestFrom) {
+  <p>{{ this.requestFrom.displayed_name}} (#{{ this.requestFrom.user_id }})</p>
   <div class="ctas">
     <cta-button [text]="'Annehmen'" (click)="this.accept()"></cta-button>
     <cta-button [text]="'Ablehnen'" (click)="this.deny()"></cta-button>

@@ -18,7 +18,7 @@ export class FriendRequestService {
     }
   }
 
-  public async acceptFriendRequest(userId?: number): Promise<Response> {
+  public async acceptFriendRequest(userId?: string): Promise<Response> {
     try {
       return (await api.put<Response>(`/api/user/accept-friend-request`, { userId }, {
         headers: {
@@ -30,7 +30,7 @@ export class FriendRequestService {
     }
   }
 
-  public async denyFriendRequest(userId?: number): Promise<Response> {
+  public async denyFriendRequest(userId?: string): Promise<Response> {
     try {
       return (await api.put<Response>(`/api/user/deny-friend-request`, { userId }, {
         headers: {

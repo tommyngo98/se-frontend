@@ -24,7 +24,7 @@
     @if (activeTab === 'add-friend') {
       <div class="search">
         <div class="search__form">
-          <input class="search__input" type="text" [(ngModel)]="userId" placeholder="User-ID" />
+          <input class="search__input" type="text" [(ngModel)]="userId" placeholder="#" />
           <cta-button
             [text]="'Suchen'"
             (click)="setSearchResult(userId)"

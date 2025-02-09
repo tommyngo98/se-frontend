@@ -14,7 +14,7 @@ export interface User {
 }
 
 export interface FriendRequest {
-  from: number,
+  from: string,
   _id: string,
   status: RequestStatus,
 }

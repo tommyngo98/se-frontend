@@ -35,7 +35,11 @@
       placeholder="Nachricht eingeben"
       (keydown.enter)="sendMessage()"
     />
-    <cta-button [text]="'Senden'" (click)="sendMessage()"></cta-button>
+    @if (!isMobileView) {
+      <cta-button [text]="'Senden'" (click)="sendMessage()"></cta-button>
+    } @else {
+      <button (click)="sendMessage()" class="send-image"></button>
+    }
   </div>
 } @else {
   <p class="no-chat-selected">Starte einen Chat</p>

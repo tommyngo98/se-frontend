@@ -73,6 +73,20 @@ h2 {
   padding: 15px 0;
 }
 
+.send-image {
+  width: 45px;
+  height: 100%;
+  background: url('../../../../../images/send.svg') no-repeat center center;
+  background-size: cover;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.send-image:hover {
+  transform: scale(1.1);
+}
+
 .input-container {
   margin-top: auto;
   display: flex;

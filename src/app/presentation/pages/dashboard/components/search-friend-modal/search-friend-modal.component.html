@@ -24,12 +24,21 @@
     @if (activeTab === 'add-friend') {
       <div class="search">
         <div class="search__form">
-          <input class="search__input" type="text" [(ngModel)]="userId" placeholder="#" />
-          <cta-button
-            [text]="'Suchen'"
-            (click)="setSearchResult(userId)"
-            [disabled]="!userId"
-          ></cta-button>
+          <div>
+            <input class="search__input" type="number" [(ngModel)]="searchedUserId" (ngModelChange)="onUserIdChange()" placeholder="#" />
+            <cta-button
+              [text]="'Suchen'"
+              (click)="setSearchResult(searchedUserId)"
+              [disabled]="!searchedUserId || isMe || isFriend"
+            ></cta-button>
+          </div>
+          @if (isMe) {
+            <p>Das bist du selbst.</p>
+          } @else if (isFriend){
+            <p>Ihr seid bereits befreundet.</p>
+          } @else {
+            <p>Suche nach einer User-ID.</p>
+          }
         </div>
 
         @if (this.errorMessage) {

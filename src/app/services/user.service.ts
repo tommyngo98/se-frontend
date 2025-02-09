@@ -14,7 +14,7 @@ export class UserService {
     }
   }
 
-  public async getUserByIndex(userIndex?: string): Promise<User> {
+  public async getUserByIndex(userIndex?: number): Promise<User> {
     try {
       return (await api.get<User>(`/api/user/byIndex/${userIndex}`)).data
     } catch (error) {

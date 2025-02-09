@@ -75,8 +75,16 @@
   .search {
     &__form {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
+
+      div {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      p {
+        color: $background-color;
+      }
     }
 
     &__input {

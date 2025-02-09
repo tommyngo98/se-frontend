@@ -25,14 +25,18 @@ export class SearchFriendModalComponent {
   public showHint = computed(() => {
     return this.pendingRequests()?.length;
   });
-  public userId?: string;
+  public searchedUserId?: number;
   public foundUser: User | undefined;
   public activeTab: string = 'add-friend';
   public errorMessage: string | undefined;
+  public user = input<User>();
+  public userFriends = input<User[]>();
+  public isMe = false;
+  public isFriend = false;
 
   public constructor(private userService: UserService) {}
 
-  public async setSearchResult(userIndex?: string): Promise<void> {
+  public async setSearchResult(userIndex?: number): Promise<void> {
     this.foundUser = undefined;
     this.errorMessage = '';
 
@@ -45,6 +49,21 @@ export class SearchFriendModalComponent {
 
   public setActiveTab(tab: string): void {
     this.activeTab = tab;
+    this.errorMessage = '';
+  }
+
+  public onUserIdChange(): void {
+    this.isMe = false;
+    this.isFriend = false;
+    if (this.user()?.user_id === this.searchedUserId ) {
+      this.isMe = true;
+    }
+
+    if (this.userFriends()?.some(friend => parseInt(friend.user_id) === this.searchedUserId)) {
+      this.isFriend = true;
+    }
+
+    this.foundUser = undefined;
     this.errorMessage = '';
   }
 

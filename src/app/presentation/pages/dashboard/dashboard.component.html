@@ -29,6 +29,8 @@
       <search-friend-modal
         [pendingRequests]="this.user.pendingRequests"
         (close)="closeSearchModal()"
+        [user]="this.user"
+        [userFriends]="this.friends"
       ></search-friend-modal>
     }
   </main>

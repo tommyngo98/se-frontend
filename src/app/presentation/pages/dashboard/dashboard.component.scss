@@ -11,7 +11,7 @@
   flex-direction: column;
   width: 95%;
   height: 70%;
-  margin: auto;
+  margin: 40px auto auto auto;
   text-align: center;
 
   &__title {
@@ -21,6 +21,10 @@
 
 cta-button {
   margin-top: 20px;
+}
+
+visibility-toggle {
+  margin-bottom: 20px;
 }
 
 .dashboard-center {

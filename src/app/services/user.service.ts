@@ -22,6 +22,18 @@ export class UserService {
     }
   }
 
+  public async updateVisibility(isVisible: boolean, token: string): Promise<void> {
+    try {
+      return (await api.put(`/api/user/change-visibility`,{ isVisible }, {
+        headers: {
+          'x-auth-token': `${token}`
+        }
+      })).data
+    } catch (error) {
+      throw error;
+    }
+  }
+
 
   public async getUserByToken(token: string): Promise<User> {
     try {

@@ -10,6 +10,7 @@ import { FriendsListComponent } from "./components/friends-list/friends-list.com
 import { LogoutService } from "../../../services/logout.service";
 import { Router } from "@angular/router";
 import { NgClass } from "@angular/common";
+import {ToggleComponent} from "../../ui-components/toggle/toggle.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -19,7 +20,8 @@ import { NgClass } from "@angular/common";
     ChatComponent,
     SearchFriendModalComponent,
     FriendsListComponent,
-    NgClass
+    NgClass,
+    ToggleComponent
   ],
   templateUrl: './dashboard.component.html',
   standalone: true,
@@ -32,7 +34,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public isFriendsListVisible = true;
 
   public isMobileView: boolean = false;
-
 
   public constructor(
     private userService: UserService,

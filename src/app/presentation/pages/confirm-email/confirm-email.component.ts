@@ -3,7 +3,6 @@ import { ActivatedRoute, RouterLink } from "@angular/router";
 import { ConfirmEmailService } from "../../../services/confirm-email.service";
 import { HeaderComponent } from "../../ui-components/header/header.component";
 import { FooterComponent } from "../../ui-components/footer/footer.component";
-import { InputFormComponent } from "../../ui-components/input-form/input-form.component";
 import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.component";
 
 @Component({
@@ -11,7 +10,6 @@ import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.co
   imports: [
     HeaderComponent,
     FooterComponent,
-    InputFormComponent,
     CtaButtonComponent,
     RouterLink
   ],

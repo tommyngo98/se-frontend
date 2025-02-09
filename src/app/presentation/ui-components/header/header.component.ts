@@ -5,10 +5,11 @@ import { Router } from "@angular/router";
 import { User } from "../../../data-domain/models/user.model";
 
 @Component({
-    selector: 'app-header',
-    imports: [CtaButtonComponent],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss'
+  selector: 'app-header',
+  imports: [CtaButtonComponent],
+  templateUrl: './header.component.html',
+  standalone: true,
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   public user = input<User>();

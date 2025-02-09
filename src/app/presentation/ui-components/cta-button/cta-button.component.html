@@ -1,1 +1,4 @@
-<button [type]="type()" [disabled]="disabled()" [innerHTML]="text()"></button>
+<button [type]="type()" [disabled]="disabled()">
+  <span [innerHTML]="text()"></span>
+  <ng-content></ng-content>
+</button>

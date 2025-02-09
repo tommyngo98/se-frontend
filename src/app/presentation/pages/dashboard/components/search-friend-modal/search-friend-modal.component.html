@@ -11,8 +11,12 @@
     <button
       [class.active]="activeTab === 'pending-requests'"
       (click)="setActiveTab('pending-requests')"
+      class="pending-requests"
     >
       Offene Anfragen
+      @if (showHint()) {
+        <div class="circle">!</div>
+      }
     </button>
   </div>
 
@@ -20,12 +24,21 @@
     @if (activeTab === 'add-friend') {
       <div class="search">
         <div class="search__form">
-          <input class="search__input" type="text" [(ngModel)]="userId" placeholder="User-ID" />
-          <cta-button
-            [text]="'Suchen'"
-            (click)="setSearchResult(userId)"
-            [disabled]="!userId"
-          ></cta-button>
+          <div>
+            <input class="search__input" type="number" [(ngModel)]="searchedUserId" (ngModelChange)="onUserIdChange()" placeholder="#" />
+            <cta-button
+              [text]="'Suchen'"
+              (click)="setSearchResult(searchedUserId)"
+              [disabled]="!searchedUserId || isMe || isFriend"
+            ></cta-button>
+          </div>
+          @if (isMe) {
+            <p>Das bist du selbst.</p>
+          } @else if (isFriend){
+            <p>Ihr seid bereits befreundet.</p>
+          } @else {
+            <p>Suche nach einer User-ID.</p>
+          }
         </div>
 
         @if (this.errorMessage) {
@@ -58,6 +71,9 @@
   </div>
 
   <div class="modal-footer">
+    <visibility-toggle
+      [initialState]="this.user()?.isVisible"
+    ></visibility-toggle>
     <cta-button [text]="'Schließen'" (click)="closeModal()"></cta-button>
   </div>
 </div>

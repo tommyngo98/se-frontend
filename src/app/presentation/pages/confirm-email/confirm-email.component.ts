@@ -3,20 +3,19 @@ import { ActivatedRoute, RouterLink } from "@angular/router";
 import { ConfirmEmailService } from "../../../services/confirm-email.service";
 import { HeaderComponent } from "../../ui-components/header/header.component";
 import { FooterComponent } from "../../ui-components/footer/footer.component";
-import { InputFormComponent } from "../../ui-components/input-form/input-form.component";
 import { CtaButtonComponent } from "../../ui-components/cta-button/cta-button.component";
 
 @Component({
-    selector: 'app-confirm-email',
-    imports: [
-        HeaderComponent,
-        FooterComponent,
-        InputFormComponent,
-        CtaButtonComponent,
-        RouterLink
-    ],
-    templateUrl: './confirm-email.component.html',
-    styleUrl: './confirm-email.component.scss'
+  selector: 'app-confirm-email',
+  imports: [
+    HeaderComponent,
+    FooterComponent,
+    CtaButtonComponent,
+    RouterLink
+  ],
+  templateUrl: './confirm-email.component.html',
+  standalone: true,
+  styleUrl: './confirm-email.component.scss'
 })
 export class ConfirmEmailComponent implements OnInit {
   public errorMessage = '';

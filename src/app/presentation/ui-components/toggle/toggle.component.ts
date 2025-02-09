@@ -13,12 +13,12 @@ import {UserService} from "../../../services/user.service";
 })
 export class ToggleComponent implements OnInit {
   public isVisible: boolean = true;
-  public initialState = input.required<boolean>();
+  public initialState = input.required<boolean | undefined>();
 
   public constructor(private userService: UserService) {}
 
   public ngOnInit(): void {
-    this.isVisible = this.initialState();
+    this.isVisible = this.initialState()!;
   }
 
   public async onVisibilityChange(isVisible: boolean): Promise<void> {

@@ -20,7 +20,6 @@
   padding: 20px;
   border-radius: 8px;
   z-index: 1001;
-  min-height: 260px;
 }
 
 .error {
@@ -91,4 +90,10 @@
       min-width: 50%;
     }
   }
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
 }

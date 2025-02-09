@@ -71,6 +71,9 @@
   </div>
 
   <div class="modal-footer">
+    <visibility-toggle
+      [initialState]="this.user()?.isVisible"
+    ></visibility-toggle>
     <cta-button [text]="'Schließen'" (click)="closeModal()"></cta-button>
   </div>
 </div>

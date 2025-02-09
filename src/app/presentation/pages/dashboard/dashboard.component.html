@@ -2,9 +2,6 @@
 
 @if (this.user) {
   <main class="dashboard-page">
-    <visibility-toggle
-      [initialState]="this.user.isVisible"
-    ></visibility-toggle>
     <div class="dashboard-center">
       @if (isMobileView) {
         <button class="toggle-friends-button"

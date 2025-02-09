@@ -5,6 +5,7 @@ import { SearchResultTileComponent } from "../search-result-tile/search-result-t
 import { FriendRequest, User } from "../../../../../data-domain/models/user.model";
 import { UserService } from "../../../../../services/user.service";
 import { PendingRequestTileComponent } from "../pending-request-tile/pending-request-tile.component";
+import {ToggleComponent} from "../../../../ui-components/toggle/toggle.component";
 
 @Component({
   selector: 'search-friend-modal',
@@ -12,7 +13,8 @@ import { PendingRequestTileComponent } from "../pending-request-tile/pending-req
     CtaButtonComponent,
     FormsModule,
     SearchResultTileComponent,
-    PendingRequestTileComponent
+    PendingRequestTileComponent,
+    ToggleComponent
   ],
   templateUrl: './search-friend-modal.component.html',
   standalone: true,

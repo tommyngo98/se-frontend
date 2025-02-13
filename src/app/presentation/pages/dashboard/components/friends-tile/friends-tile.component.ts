@@ -3,9 +3,9 @@ import {User} from "../../../../../data-domain/models/user.model";
 
 @Component({
   selector: 'friends-tile',
-  standalone: true,
   imports: [],
   templateUrl: './friends-tile.component.html',
+  standalone: true,
   styleUrl: './friends-tile.component.scss'
 })
 export class FriendsTileComponent {

@@ -20,6 +20,7 @@ export class FriendsListComponent {
   public constructor(private selectFriendService: SelectFriendService) {}
 
   public friends = input.required<User[]>();
+  public showHint = input.required<boolean>();
 
   @Output()
   public showSearchModalEvent = new EventEmitter<void>();

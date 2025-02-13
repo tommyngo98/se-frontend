@@ -6,9 +6,9 @@ import { User } from "../../../data-domain/models/user.model";
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [CtaButtonComponent],
   templateUrl: './header.component.html',
+  standalone: true,
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {

@@ -6,9 +6,9 @@ import { Response } from "../../../../../data-domain/models/confirm-email-respon
 
 @Component({
   selector: 'search-result-tile',
-  standalone: true,
   imports: [CtaButtonComponent],
   templateUrl: './search-result-tile.component.html',
+  standalone: true,
   styleUrl: './search-result-tile.component.scss'
 })
 export class SearchResultTileComponent {

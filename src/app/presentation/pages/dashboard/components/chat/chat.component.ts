@@ -1,4 +1,4 @@
-import { Component, ElementRef, input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {Component, ElementRef, HostListener, input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { SocketService } from '../../../../../services/socket.service';
 import { FormsModule } from "@angular/forms";
 import { User } from "../../../../../data-domain/models/user.model";
@@ -17,7 +17,7 @@ import {getTime} from "../../../../../utils/get-time";
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.scss',
   imports: [FormsModule, NgClass, CtaButtonComponent, KeyValuePipe, DatePipe, DateTranslatePipe],
-  standalone: true
+  standalone: true,
 })
 export class ChatComponent implements OnInit, OnDestroy {
   @ViewChild('messageWindow') messageWindow!: ElementRef;
@@ -25,6 +25,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   public chatId: string | undefined;
   public sender = input.required<User>();
 
+  public isMobileView: boolean = false;
   public selectedFriend: User | undefined;
   public message = '';
   public messagesLoaded = false;
@@ -39,6 +40,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.addFriendSubscription();
     this.addStoredMessagesSubscription();
     this.addNewMessageSubscription();
+    this.checkIfMobile();
   }
 
   public addFriendSubscription(): void {
@@ -96,6 +98,12 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.subscriptions.forEach(sub => sub.unsubscribe());
+  }
+
+  @HostListener('window:resize', ['$event'])
+  public checkIfMobile(): void {
+    console.log('test');
+    this.isMobileView = window.innerWidth <= 768;
   }
 
   private scrollToBottom(): void {

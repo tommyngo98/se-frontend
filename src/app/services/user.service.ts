@@ -14,9 +14,21 @@ export class UserService {
     }
   }
 
-  public async getUserByIndex(userIndex?: string): Promise<User> {
+  public async getUserByIndex(userIndex?: number): Promise<User> {
     try {
       return (await api.get<User>(`/api/user/byIndex/${userIndex}`)).data
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async updateVisibility(isVisible: boolean, token: string): Promise<void> {
+    try {
+      return (await api.put(`/api/user/change-visibility`,{ isVisible }, {
+        headers: {
+          'x-auth-token': `${token}`
+        }
+      })).data
     } catch (error) {
       throw error;
     }

@@ -12,7 +12,9 @@
       @if (isFriendsListVisible) {
         <friends-list
           [friends]="friends"
-          (showSearchModalEvent)="showSearchModal()">
+          (showSearchModalEvent)="showSearchModal()"
+          [showHint]="this.user.pendingRequests.length > 0"
+        >
         </friends-list>
       }
       <app-chat
@@ -27,6 +29,8 @@
       <search-friend-modal
         [pendingRequests]="this.user.pendingRequests"
         (close)="closeSearchModal()"
+        [user]="this.user"
+        [userFriends]="this.friends"
       ></search-friend-modal>
     }
   </main>

@@ -12,8 +12,13 @@
 } @else {
   <p>noch keine Freunde</p>
 }
+
 <cta-button
   class="add-friend"
   [text]="'+'"
   (click)="showSearchModal()"
-></cta-button>
+>
+  @if (showHint()) {
+    <div class="circle">!</div>
+  }
+</cta-button>

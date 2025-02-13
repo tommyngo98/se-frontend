@@ -7,9 +7,9 @@ import { FooterComponent } from "../../ui-components/footer/footer.component";
 
 @Component({
   selector: 'app-register',
-  standalone: true,
   imports: [RouterLink, InputFormComponent, HeaderComponent, FooterComponent],
   templateUrl: './register.component.html',
+  standalone: true,
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
